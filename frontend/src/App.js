@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import SignupFormPage from './components/SignupFormPage';
 import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
-import { Modal } from './context/Modal';
 import ShowAllPosts from './components/Posts/ShowAllPosts';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const session = useSelector(state => state.session.user);
 
   useEffect(() => {
@@ -28,7 +25,7 @@ function App() {
             {session? <ShowAllPosts /> : <LoginFormPage />}
           </Route>
 
-            
+
         </Switch>
 
         </div>
