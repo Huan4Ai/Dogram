@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
+import "./AllPosts.css"
 
 function ShowAllPosts() {
   const dispatch = useDispatch();
@@ -15,9 +16,10 @@ function ShowAllPosts() {
 
 
   return (
-    <div>
+    <div className="AllPostContainer">
       {Object.keys(posts).map(post =>
         <div key={posts[post].id}>
+          <img src={posts[post].photo_url} alt="post image" className="AllPostImages" />
           <p>{posts[post].description}</p>
         </div>
 
