@@ -52,7 +52,7 @@ const postReducer = (state = {}, action) => {
       return { ...state, ...action.list };
 
     case ADD_POST:
-      return {...state, ...action.post}
+      return { ...state, [action.post.id]: action.post };
 
 
     default:

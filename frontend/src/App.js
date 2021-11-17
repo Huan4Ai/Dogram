@@ -24,7 +24,9 @@ function App() {
           <Route path="/" exact>
             {session? <ShowAllPosts /> : <LoginFormPage />}
           </Route>
-
+          <Route path="/new-post" exact>
+            {/* {session} */}
+          </Route>
 
         </Switch>
 

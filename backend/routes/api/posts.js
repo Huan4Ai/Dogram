@@ -2,8 +2,11 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { requireAuth } = require('../../utils/auth');
 const { User, Post } = require('../../db/models');
-import { singlePublicFileUpload } from '../../awsS3';
+// import { singlePublicFileUpload } from '../../awsS3';
 import { singleMulterUpload } from '../../awsS3';
+const singlePublicFileUpload = require("../../awsS3");
+// const singleMulterUpload = require("../../awsS3");
+
 
 const router = express.Router();
 
