@@ -14,6 +14,7 @@ const addPost = (post) => ({
 });
 
 export const createPost = (post) => async (dispatch) => {
+  // console.log(post);
   const { user_id, description, image } = post;
   const formData = new FormData();
   formData.append("user_id", user_id);
@@ -26,8 +27,8 @@ export const createPost = (post) => async (dispatch) => {
     },
     body: formData,
   });
-  const post = await res.json();
-  dispatch(addPost(post));
+  const data = await res.json();
+  dispatch(addPost(data));
 };
 export const getPosts = () => async dispatch => {
   const response = await csrfFetch('/api/posts/');
