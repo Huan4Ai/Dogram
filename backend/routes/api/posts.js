@@ -19,11 +19,12 @@ router.get('/', asyncHandler(async (req, res) => {
 router.post("/", singleMulterUpload("image"), asyncHandler(async (req, res) => {
   const { description } = req.body;
   const photo_url = await singlePublicFileUpload(req.file);
-  const newPost = await Post.create({
+  let newPost = await Post.create({
     user_id: req.user.id,
     description,
     photo_url
   });
+  
   res.json(newPost);
 
 }));

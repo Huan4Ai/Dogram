@@ -13,24 +13,12 @@ const addPost = (post) => ({
   post
 });
 
-
-export const getPosts = () => async dispatch => {
-  const response = await csrfFetch('/api/posts/');
-
-  if (response.ok) {
-    const list = await response.json();
-    dispatch(loadPosts(list))
-  }
-}
-
 export const createPost = (post) => async (dispatch) => {
   const { user_id, description, image } = post;
   const formData = new FormData();
   formData.append("user_id", user_id);
   formData.append("description", description);
-
   if (image) formData.append("image", image);
-
   const res = await csrfFetch('/api/posts/', {
     method: "POST",
     headers: {
@@ -38,12 +26,16 @@ export const createPost = (post) => async (dispatch) => {
     },
     body: formData,
   });
-
   const post = await res.json();
   dispatch(addPost(post));
+};
+export const getPosts = () => async dispatch => {
+  const response = await csrfFetch('/api/posts/');
 
-
-
+  if (response.ok) {
+    const list = await response.json();
+    dispatch(loadPosts(list))
+  }
 };
 
 const postReducer = (state = {}, action) => {
