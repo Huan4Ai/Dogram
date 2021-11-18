@@ -1,0 +1,11 @@
+.AllPostImages {
+  height: 200px;
+  width: 200px;
+}
+
+.AllPostContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+}

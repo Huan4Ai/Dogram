@@ -4,32 +4,35 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import logo from "./customLogo.jpg"
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
-  } else {
-    sessionLinks = (
-      <>
-        <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
-      </>
-    );
-  }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
-  );
+    <div className="navBar">
+
+      <div className="left_logo">
+        <NavLink to="/">
+          <img src={logo} alt="Dogram Logo" className="left_logoImage" />
+        </NavLink>
+      </div>
+
+      <div className="mid_search">
+        <i className="fas fa-search" />
+        <input type="text" placeholder="Search" className="center_inputField" />
+      </div>
+
+      <div className="right_header">
+        <NavLink className="plusIcon" to="/new-post">
+          <i class="far fa-plus-square" />
+        </NavLink>
+        <ProfileButton user={sessionUser} />
+      </div>
+
+    </div>
+  )
 }
 
 export default Navigation;
