@@ -1,6 +1,6 @@
 .navBar {
   display: flex;
-  justify-content:center;
+  justify-content:space-around;
   align-items: center;
   padding: 1px;
   background-color: white;
@@ -44,4 +44,10 @@
   color: grey;
   cursor: pointer;
   font-size: large;
+}
+
+.plusIcon {
+  font-size: 25px;
+  margin-right: 20px;
+  color: black;
 }

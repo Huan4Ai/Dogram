@@ -25,7 +25,9 @@ function Navigation({ isLoaded }){
       </div>
 
       <div className="right_header">
-        <i class="far fa-plus-square" />
+        <NavLink className="plusIcon" to="/new-post">
+          <i class="far fa-plus-square" />
+        </NavLink>
         <ProfileButton user={sessionUser} />
       </div>
 
