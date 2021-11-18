@@ -19,10 +19,10 @@ function ShowAllPosts() {
     <div className="AllPostContainer">
       {Object.keys(posts).map(post =>
         <div key={posts[post].id}>
+          {/* <h4>{posts[post].user_id }</h4> */}
           <img src={posts[post].photo_url} alt="postImage" className="AllPostImages" />
           <p>{posts[post].description}</p>
         </div>
-
 
       )}
     </div>
