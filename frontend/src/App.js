@@ -5,6 +5,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import ShowAllPosts from './components/Posts/ShowAllPosts';
+import CreatePost from './components/Posts/AddPost';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function App() {
             {session? <ShowAllPosts /> : <LoginFormPage />}
           </Route>
           <Route path="/new-post" exact>
-            {/* {session} */}
+            {session? <CreatePost /> : null }
           </Route>
 
         </Switch>
