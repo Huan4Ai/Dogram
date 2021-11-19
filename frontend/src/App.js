@@ -6,6 +6,7 @@ import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import ShowAllPosts from './components/Posts/ShowAllPosts';
 import CreatePost from './components/Posts/AddPost';
+import UserProfilePage from './components/Posts/UserProfile';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +29,9 @@ function App() {
           <Route path="/new-post" exact>
             {session? <CreatePost /> : null }
           </Route>
-
+          <Route path="/my-profile" exact>
+              {session ? <UserProfilePage /> : <LoginFormPage /> }
+          </Route>
         </Switch>
 
         </div>
