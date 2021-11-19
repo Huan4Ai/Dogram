@@ -46,6 +46,24 @@ export const createPost = (post) => async (dispatch) => {
   dispatch(addPost(data));
 };
 
+export const updatePost = (post) => async (dispatch) => {
+  const { user_id, description, image } = post;
+  const formData = new FormData();
+  formData.append("user_id", user_id);
+  formData.append("description", description);
+  if (image) formData.append("image", image);
+  const res = await csrfFetch(`/api/posts/${post.id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    body: formData,
+  });
+  const data = await res.json();
+  dispatch(editPost(data));
+
+}
+
 
 
 
@@ -53,11 +71,10 @@ const postReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD_POSTS:
       return { ...state, ...action.list };
-
     case ADD_POST:
       return { ...state, [action.post.id]: action.post };
-
-
+    case EDIT_POST:
+      return { ...state, [action.post.id]: action.post };
     default:
       return state
   }
