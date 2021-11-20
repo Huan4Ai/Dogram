@@ -24,36 +24,66 @@ function LoginFormPage() {
       });
   };
 
+  const demoButton = async (e) => {
+    setCredential("Demo-lition");
+    setPassword("password");
+    return dispatch(sessionActions.login({ credential, password }))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+  }
+
   return (
     <>
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
+      <form onSubmit={handleSubmit} className="login_form">
+        <div className="login_errors">
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+        </div>
         <div>
+          <div>
+            <label>
+              Username or Email
+            </label>
+          </div>
+          <div>
+            <input
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              placeholder="Your username or email"
+              required
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+            <label>
+              Password
+            </label>
+          </div>
+          <div>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your password"
+              required
+            />
+          </div>
+        </div>
+        <div className="loginButtons">
           <SignUpFormModal />
-          <button type="submit">Log In</button>
+          <button type="submit" className="login_button">Login</button>
+          <button onClick={demoButton} className="demo_user">Demo User</button>
+        </div>
+        <div>
+          <a href="https://github.com/Huan4Ai/Doguora" className="footer">About</a>
         </div>
       </form>
     </>
