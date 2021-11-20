@@ -32,6 +32,9 @@ function App() {
           <Route path="/my-profile" exact>
               {session ? <UserProfilePage /> : <LoginFormPage /> }
           </Route>
+          <Route path="/my-profile" exact>
+              {/* {session ? <UserProfilePage /> : <LoginFormPage />} */}
+          </Route>
         </Switch>
 
         </div>

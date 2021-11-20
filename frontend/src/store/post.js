@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const LOAD_POSTS = 'posts/LOAD_POSTS';
 const ADD_POST = 'posts/ADD_POST';
+const EDIT_POST = 'posts/EDIT_POST';
 
 const loadPosts = (list) => ({
   type: LOAD_POSTS,
@@ -12,6 +13,20 @@ const addPost = (post) => ({
   type: ADD_POST,
   post
 });
+
+const editPost = (post) => ({
+  type: EDIT_POST,
+  post
+})
+
+export const getPosts = () => async dispatch => {
+  const response = await csrfFetch('/api/posts/');
+
+  if (response.ok) {
+    const list = await response.json();
+    dispatch(loadPosts(list))
+  }
+};
 
 export const createPost = (post) => async (dispatch) => {
   // console.log(post);
@@ -30,24 +45,36 @@ export const createPost = (post) => async (dispatch) => {
   const data = await res.json();
   dispatch(addPost(data));
 };
-export const getPosts = () => async dispatch => {
-  const response = await csrfFetch('/api/posts/');
 
-  if (response.ok) {
-    const list = await response.json();
-    dispatch(loadPosts(list))
-  }
-};
+export const updatePost = (post) => async (dispatch) => {
+  const { user_id, description, image } = post;
+  const formData = new FormData();
+  formData.append("user_id", user_id);
+  formData.append("description", description);
+  if (image) formData.append("image", image);
+  const res = await csrfFetch(`/api/posts/${post.id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+    body: formData,
+  });
+  const data = await res.json();
+  dispatch(editPost(data));
+
+}
+
+
+
 
 const postReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD_POSTS:
       return { ...state, ...action.list };
-
     case ADD_POST:
       return { ...state, [action.post.id]: action.post };
-
-
+    case EDIT_POST:
+      return { ...state, [action.post.id]: action.post };
     default:
       return state
   }

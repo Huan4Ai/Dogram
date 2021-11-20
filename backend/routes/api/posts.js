@@ -30,6 +30,26 @@ router.post("/", singleMulterUpload("image"), requireAuth, asyncHandler(async (r
 
 }));
 
+router.put('/:id(\\d+)', singleMulterUpload("image"), requireAuth, asyncHandler(async (req, res) => {
+
+  const postToUpdate = await Post.findByPk(req.params.id);
+  const { description } = req.body;
+  const photo_url = await singlePublicFileUpload(req.file);
+
+  if (req.file) {
+    await postToUpdate.update({
+      description,
+      photo_url
+    });
+  } else {
+    await postToUpdate.update({
+      description,
+      photo_url: image || null
+    })
+  }
+  res.json(postToUpdate)
+
+}));
 
 
 
