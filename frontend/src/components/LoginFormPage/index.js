@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import './LoginForm.css';
 import SignUpFormModal from "../SignupFormPage/index"
+import phoneScreen from "./phoneScreen.png"
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -35,8 +36,8 @@ function LoginFormPage() {
   }
 
   return (
-    <>
-      <h1>Log In</h1>
+    <div className="loginPageContainer">
+      <img src={phoneScreen} alt="land page phone"/>
       <form onSubmit={handleSubmit} className="login_form">
         <div className="login_errors">
           <ul>
@@ -86,7 +87,7 @@ function LoginFormPage() {
           <a href="https://github.com/Huan4Ai/Doguora" className="footer">About</a>
         </div>
       </form>
-    </>
+    </div>
   );
 }
 
