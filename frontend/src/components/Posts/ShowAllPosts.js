@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
 import "./AllPosts.css"
+import EditPost from "./EditPost";
 
 function ShowAllPosts() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function ShowAllPosts() {
           {/* <h4>{posts[post].user_id }</h4> */}
           <img src={posts[post].photo_url} alt="postImage" className="AllPostImages" />
           <p>{posts[post].description}</p>
+          <EditPost post={posts[post]} />
         </div>
 
       )}

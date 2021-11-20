@@ -47,6 +47,8 @@ router.patch('/:id(\\d+)', singleMulterUpload("image"), requireAuth, asyncHandle
       photo_url: image || null
     })
   }
+
+
   res.json(postToUpdate)
 
 }));

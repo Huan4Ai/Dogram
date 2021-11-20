@@ -3,10 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../store/post";
 
 function EditPost({ post }) {
+  console.log(post)
   const dispatch = useDispatch();
-
-  // const id = post.id;
-  // const user_id = post.user_id;
 
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);

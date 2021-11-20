@@ -34,7 +34,7 @@ function UserProfilePage() {
           <div key={post.id}>
             <img src={post.photo_url} alt="postImage" className="AllPostImages" />
             <p>{post.description}</p>
-            <EditPost post={post}/>
+            {/* <EditPost post={post}/> */}
           </div>
           )}
       </div>
