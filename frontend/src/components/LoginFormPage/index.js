@@ -84,7 +84,7 @@ function LoginFormPage() {
           <button onClick={demoButton} className="demo_user">Demo User</button>
         </div>
         <div>
-          <a href="https://github.com/Huan4Ai/Doguora" className="footer">About</a>
+          <a href="https://github.com/Huan4Ai/Dogram" className="footer">About</a>
         </div>
       </form>
     </div>

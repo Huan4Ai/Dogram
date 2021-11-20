@@ -47,9 +47,9 @@ export const createPost = (post) => async (dispatch) => {
 };
 
 export const updatePost = (post) => async (dispatch) => {
-  const { user_id, description, image } = post;
+  const { description, image } = post;
   const formData = new FormData();
-  formData.append("user_id", user_id);
+  // formData.append("user_id", user_id);
   formData.append("description", description);
   if (image) formData.append("image", image);
   const res = await csrfFetch(`/api/posts/${post.id}`, {

@@ -30,7 +30,7 @@ router.post("/", singleMulterUpload("image"), requireAuth, asyncHandler(async (r
 
 }));
 
-router.put('/:id(\\d+)', singleMulterUpload("image"), requireAuth, asyncHandler(async (req, res) => {
+router.patch('/:id(\\d+)', singleMulterUpload("image"), requireAuth, asyncHandler(async (req, res) => {
 
   const postToUpdate = await Post.findByPk(req.params.id);
   const { description } = req.body;
