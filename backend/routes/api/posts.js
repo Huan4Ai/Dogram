@@ -30,29 +30,38 @@ router.post("/", singleMulterUpload("image"), requireAuth, asyncHandler(async (r
 
 }));
 
-router.patch('/:id(\\d+)', singleMulterUpload("image"), requireAuth, asyncHandler(async (req, res) => {
+router.patch('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 
   const postToUpdate = await Post.findByPk(req.params.id);
   const { description } = req.body;
-  const photo_url = await singlePublicFileUpload(req.file);
 
-  if (req.file) {
-    await postToUpdate.update({
-      description,
-      photo_url
+  if (postToUpdate && (req.user.id === postToUpdate.user_id)) {
+    postToUpdate.update({
+      description
     });
+    res.json(postToUpdate);
+    res.redirect('/');
+  } else if (req.user.id !== postToUpdate.user_id) {
+    next(new Error("You are not authorized to update that"));
   } else {
-    await postToUpdate.update({
-      description,
-      photo_url: image || null
-    })
+    next(new Error("Question not found"));
   }
-
-
-  res.json(postToUpdate)
 
 }));
 
+  // const photo_url = await singlePublicFileUpload(req.file);
+
+  // if (req.file) {
+  //   await postToUpdate.update({
+  //     description,
+  //     photo_url
+  //   });
+  // } else {
+  //   await postToUpdate.update({
+  //     description,
+  //     photo_url: image || null
+  //   })
+  // }
 
 
 module.exports = router;
