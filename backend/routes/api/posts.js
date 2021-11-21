@@ -49,6 +49,17 @@ router.patch('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 
 }));
 
+router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
+
+  const postToDelete = await Post.findByPk(req.params.id);
+
+  await postToDelete.destroy();
+
+  return res.json(postToDelete);
+
+
+}));
+
   // const photo_url = await singlePublicFileUpload(req.file);
 
   // if (req.file) {
