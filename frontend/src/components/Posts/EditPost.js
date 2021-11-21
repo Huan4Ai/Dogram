@@ -4,32 +4,34 @@ import { updatePost } from "../../store/post";
 
 function EditPost({ post }) {
   const dispatch = useDispatch();
+  const id = post.id;
+  const user_id = post.user_id;
+  const photo_url = post.photo_url;
 
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null);
 
   const reset = () => {
     setDescription("");
-    setImage(null);
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
+      id,
+      user_id,
       description,
-      image
+      photo_url
     };
+    console.log(data)
     let editedPost = await dispatch(updatePost(data));
+
     if (editedPost) {
       reset();
     }
 
   };
 
-  const updateFile = (e) => {
-    const file = e.target.files[0];
-    if (file) setImage(file);
-  }
+
 
 
   return (
@@ -39,9 +41,6 @@ function EditPost({ post }) {
       <form onSubmit={handleSubmit}>
         <label>
           <input type="text" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)} />
-        </label>
-        <label>
-          <input type="file" onChange={updateFile} />
         </label>
         <button type="submit">Edit post</button>
       </form>
