@@ -1,10 +1,9 @@
-import { get } from "js-cookie";
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
 import "./UserProfile.css";
+import EditPost from "./EditPost";
 
 function UserProfilePage() {
   const dispatch = useDispatch();
@@ -21,8 +20,7 @@ function UserProfilePage() {
 
   const postLists = Object.values(posts);
 
-  const userPosts = postLists.filter(post => post.user_id == userId)
-  // console.log(userPosts)
+  const userPosts = postLists.filter(post => post.user_id === userId)
 
 
   return (
@@ -36,6 +34,7 @@ function UserProfilePage() {
           <div key={post.id}>
             <img src={post.photo_url} alt="postImage" className="AllPostImages" />
             <p>{post.description}</p>
+            {/* <EditPost post={post}/> */}
           </div>
           )}
       </div>

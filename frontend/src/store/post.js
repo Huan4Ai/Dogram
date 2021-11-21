@@ -46,23 +46,24 @@ export const createPost = (post) => async (dispatch) => {
   dispatch(addPost(data));
 };
 
-export const updatePost = (post) => async (dispatch) => {
-  const { user_id, description, image } = post;
-  const formData = new FormData();
-  formData.append("user_id", user_id);
-  formData.append("description", description);
-  if (image) formData.append("image", image);
-  const res = await csrfFetch(`/api/posts/${post.id}`, {
+export const updatePost = (data) => async (dispatch) => {
+
+  const response = await csrfFetch(`/api/posts/${data.id}`, {
     method: "PATCH",
     headers: {
-      "Content-Type": "multipart/form-data",
+      "Content-Type": "application/json",
     },
-    body: formData,
+    body: JSON.stringify(data),
   });
-  const data = await res.json();
-  dispatch(editPost(data));
 
-}
+
+  if (response.ok) {
+    const post = await response.json();
+    dispatch(editPost(post));
+    return post;
+  }
+
+};
 
 
 
