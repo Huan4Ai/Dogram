@@ -24,6 +24,7 @@ export const getPosts = () => async dispatch => {
 
   if (response.ok) {
     const list = await response.json();
+    // console.log(list)
     dispatch(loadPosts(list))
   }
 };
@@ -71,16 +72,19 @@ export const updatePost = (data) => async (dispatch) => {
 const postReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD_POSTS:
-      return { ...state, ...action.list };
+      let newState = { ...state };
+      const posts = action.list;
+      posts.forEach(post => {
+        newState[post.id] = post
+      });
+      return newState;
     case ADD_POST:
-      return { ...state, [action.post.id]: action.post };
+      return {...state, [action.post.id]: action.post}
     case EDIT_POST:
       return { ...state, [action.post.id]: action.post };
     default:
       return state
   }
-
-
 
 }
 
