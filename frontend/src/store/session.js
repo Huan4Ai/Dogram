@@ -46,6 +46,31 @@ export const signup = (user) => async (dispatch) => {
   return response;
 };
 
+
+// export const signupWithProfilePicture = (user) => async (dispatch) => {
+//   const { image, username, email, password } = user;
+//   const formData = new FormData();
+//   formData.append("username", username);
+//   formData.append("email", email);
+//   formData.append("password", password);
+
+//   if (image) formData.append("image", image);
+
+//   const res = await csrfFetch("/api/users/with-profilePicture", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//     body: formData,
+//   });
+
+//   const data = await res.json();
+//   dispatch(setUser(data.user));
+
+
+
+// }
+
 export const logout = () => async (dispatch) => {
   const response = await csrfFetch("/api/session", {
     method: "DELETE",
@@ -60,6 +85,9 @@ function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
     case SET_USER:
+      if (action.payload === undefined) {
+        return state;
+      }
       newState = Object.assign({}, state, { user: action.payload });
       return newState;
     case REMOVE_USER:
