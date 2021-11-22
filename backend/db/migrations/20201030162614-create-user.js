@@ -28,6 +28,7 @@ module.exports = {
       },
       about: {
         type: Sequelize.TEXT,
+        defaultValue: "A dog lover"
       },
       isPrivate: {
         type: Sequelize.BOOLEAN,
