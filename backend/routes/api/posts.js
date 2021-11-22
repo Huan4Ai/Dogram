@@ -40,7 +40,7 @@ router.patch('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
       description
     });
     res.json(postToUpdate);
-    res.redirect('/');
+    // res.redirect('/');
   } else if (req.user.id !== postToUpdate.user_id) {
     new Error("You are not authorized to update that");
   } else {
