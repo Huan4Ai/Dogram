@@ -22,6 +22,17 @@ module.exports = {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
       },
+      profilePicture: {
+        type: Sequelize.TEXT,
+        defaultValue: "http://img.touxiangwu.com/2020/3/IVfaMz.jpg",
+      },
+      about: {
+        type: Sequelize.TEXT,
+      },
+      isPrivate: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

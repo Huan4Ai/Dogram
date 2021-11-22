@@ -70,6 +70,15 @@ module.exports = (sequelize, DataTypes) => {
           len: [60, 60],
         },
       },
+      profilePicture: {
+        type: DataTypes.TEXT,
+      },
+      about: {
+        type: DataTypes.TEXT,
+      },
+      isPrivate: {
+        type: DataTypes.BOOLEAN,
+      }
     },
     {
       sequelize,
