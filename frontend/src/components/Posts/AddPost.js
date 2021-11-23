@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost } from "../../store/post";
+import { useHistory } from "react-router";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
   const user_id = useSelector((state) => state.session.user.id);
+  const history = useHistory();
 
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
@@ -24,6 +26,7 @@ const CreatePost = () => {
     let createdPost = await dispatch(createPost(data));
     if (createdPost) {
       reset();
+      history.push("/");
     }
 
   };

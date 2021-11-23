@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { requireAuth } = require('../../utils/auth');
-const { User, Post } = require('../../db/models');
+const { User, Post, Comment } = require('../../db/models');
 // import { singlePublicFileUpload } from '../../awsS3';
 // import { singleMulterUpload } from '../../awsS3';
 // const singlePublicFileUpload = require("../../awsS3");
@@ -59,6 +59,28 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
 
 
 }));
+
+router.get('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
+  const allComments = await Comment.findAll({
+    where: { post_id: req.params.id }
+  });
+
+  return res.json(allComments);
+
+}));
+
+router.post('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
+  const { comment } = req.body;
+
+  const newComment = await Comment.create({
+    user_id: req.user.id,
+    post_id: req.params.id,
+    comment
+  });
+  
+  res.json(newComment);
+
+}))
 
   // const photo_url = await singlePublicFileUpload(req.file);
 
