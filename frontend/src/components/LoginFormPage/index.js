@@ -25,15 +25,13 @@ function LoginFormPage() {
       });
   };
 
-  const demoButton = async (e) => {
-    setCredential("Demo-lition");
-    setPassword("password");
-    return dispatch(sessionActions.login({ credential, password }))
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
-      });
-  }
+  const demoButton = async () => {
+    setCredential("")
+    setPassword("")
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    );
+  };
 
   return (
     <div className="loginPageContainer">
