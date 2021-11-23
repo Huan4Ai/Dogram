@@ -27,6 +27,9 @@ function Navigation({ isLoaded }){
         <NavLink className="plusIcon" to="/new-post">
           <i className="far fa-plus-square" />
         </NavLink>
+        <NavLink className="userProfile" to="/my-profile">
+          <i class="far fa-user" />
+        </NavLink>
         <ProfileButton user={sessionUser} />
       </div>
 
