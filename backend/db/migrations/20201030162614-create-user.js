@@ -24,7 +24,7 @@ module.exports = {
       },
       profilePicture: {
         type: Sequelize.TEXT,
-        defaultValue: "http://img.touxiangwu.com/2020/3/IVfaMz.jpg",
+        defaultValue: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
       },
       about: {
         type: Sequelize.TEXT,
