@@ -8,3 +8,15 @@
 .userInfo {
   text-align: center;
 }
+
+.profileP {
+  border-radius: 50%;
+  width: 100px;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}

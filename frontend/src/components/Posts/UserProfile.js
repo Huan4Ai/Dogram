@@ -26,8 +26,14 @@ function UserProfilePage() {
   return (
     <div>
       <div className="userInfo">
-        <h2>{username}</h2>
-        <h4>{userPosts.length} Posts # Following # Followers</h4>
+        <div>
+          <img src={user.profilePicture} className="profileP" />
+        </div>
+        <div>
+          <h2>{username}</h2>
+          <h4>{userPosts.length} Posts # Following # Followers</h4>
+          <p>{user.about}</p>
+        </div>
       </div>
       <div className="singlePost">
         {userPosts.map(post =>
