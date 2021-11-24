@@ -26,4 +26,4 @@ const removeComment = (commentId) => ({
   commentId
 });
 
-
+export const getComments = (id) => 
