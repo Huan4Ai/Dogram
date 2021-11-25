@@ -12,7 +12,15 @@ const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
 const router = express.Router();
 
 router.get('/', requireAuth, asyncHandler(async (req, res) => {
-  const allPosts = await Post.findAll();
+  const allPosts = await Post.findAll({
+    include: [
+      {
+        model: User,
+      }, {
+        model: Comment,
+      },
+    ],
+  });
   return res.json(allPosts);
 }));
 
@@ -77,7 +85,7 @@ router.post('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
     post_id: req.params.id,
     comment
   });
-  
+
   res.json(newComment);
 
 }))
