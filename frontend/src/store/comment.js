@@ -38,23 +38,23 @@ export const getComments = (id) => async (dispatch) => {
 
 };
 
-export const createComment = (data, postId) = async (dispatch) => {
-  const response = await csrfFetch(`/api/posts/${postId}/comments`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  });
+// export const createComment = (data, postId) = async (dispatch) => {
+//   const response = await csrfFetch(`/api/posts/${postId}/comments`, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(data)
+//   });
 
-  if (response.ok) {
-    const comment = await response.json();
-    dispatch(addComment(comment));
-    return comment;
-  }
+//   if (response.ok) {
+//     const comment = await response.json();
+//     dispatch(addComment(comment));
+//     return comment;
+//   }
 
 
-};
+// };
 
 export const updataComment = (data) => async (dispatch) => {
   const response = await csrfFetch(`/api/comments/${data.id}`, {
