@@ -4,5 +4,6 @@
   align-items: center;
   background-color: #ffffff;
   background-image: linear-gradient(315deg, #ffffff 0%, #91a6ff 74%);
+  height: 100vh;
 
 }

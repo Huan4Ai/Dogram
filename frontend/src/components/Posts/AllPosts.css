@@ -1,13 +1,20 @@
 .AllPostImages {
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
 }
 
 .AllPostContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.singlePostContainer {
+  background-color: #ffffff;
+  border: 1px solid rgba(0,0,0,0.0975);
+  border-radius: 2px;
+  margin: 20px
 }
 
 .profilePicture {
@@ -24,4 +31,15 @@
 
 .userName {
   margin: 10px;
+  font-weight: 750;
+}
+
+.usernameAndDescription{
+  display: flex;
+  padding: 5px 5px;
+}
+
+#username {
+  font-weight: 750;
+  margin-right: 5px;
 }
