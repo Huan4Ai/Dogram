@@ -1,6 +1,6 @@
 .AllPostImages {
-  height: 200px;
-  width: 200px;
+  height: 500px;
+  width: 500px;
 }
 
 .AllPostContainer {
@@ -8,4 +8,20 @@
   flex-direction: column;
   align-items: center;
   font-family: sans-serif;
+}
+
+.profilePicture {
+  border-radius: 50%;
+  width: 50px;
+}
+
+.userInfoOnPost {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.userName {
+  margin: 10px;
 }

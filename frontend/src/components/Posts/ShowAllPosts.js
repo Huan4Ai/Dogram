@@ -21,6 +21,10 @@ function ShowAllPosts() {
     <div className="AllPostContainer">
       {Object.keys(posts).map((post,index) =>
         <div key={index}>
+          <div className="userInfoOnPost">
+            <img src={posts[post]?.User?.profilePicture} alt="profilePicture" className="profilePicture" />
+            <span className="userName">{posts[post]?.User?.username}</span>
+          </div>
           <img src={posts[post].photo_url} alt="postImage" className="AllPostImages" />
           <p>{posts[post].description}</p>
         </div>
