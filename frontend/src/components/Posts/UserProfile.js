@@ -24,7 +24,6 @@ function UserProfilePage() {
 
   const userPosts = postLists.filter(post => post.user_id === userId)
 
-
   return (
     <div>
       <div className="userInfo">

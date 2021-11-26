@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
 import "./AllPosts.css"
+import ShowAllComments from "../Comments/AllComments";
 
 
 function ShowAllPosts() {
@@ -13,7 +14,6 @@ function ShowAllPosts() {
   useEffect(() => {
     dispatch(getPosts())
   }, [dispatch]);
-
 
 
 
@@ -29,6 +29,9 @@ function ShowAllPosts() {
           <div className="usernameAndDescription">
             <p id="username">{posts[post]?.User?.username}</p>
             <p>{posts[post].description}</p>
+          </div>
+          <div>
+            <ShowAllComments post={posts[post]} />
           </div>
         </div>
 

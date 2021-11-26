@@ -28,7 +28,7 @@ function Navigation({ isLoaded }){
           <i className="far fa-plus-square" />
         </NavLink>
         <NavLink className="userProfile" to="/my-profile">
-          <i class="far fa-user" />
+          <i className="far fa-user" />
         </NavLink>
         <ProfileButton user={sessionUser} />
       </div>
