@@ -70,7 +70,12 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
   const allComments = await Comment.findAll({
-    where: { post_id: req.params.id }
+    where: { post_id: req.params.id },
+    include: [
+      {
+        model: User
+      }
+    ]
   });
 
   return res.json(allComments);
