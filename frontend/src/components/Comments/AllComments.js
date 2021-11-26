@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../store/comment";
+import "./AllComments.css"
 
 function ShowAllComments({ post }) {
   const dispatch = useDispatch();
@@ -16,18 +17,19 @@ function ShowAllComments({ post }) {
   const commentValues = Object.values(comments);
 
 
-  const commentsOfOne = commentValues.filter(comment => comment.post_id === postId)
+  const commentsOfSinglePost = commentValues.filter(comment => comment.post_id === postId)
 
-  console.log(commentsOfOne)
+  console.log(commentsOfSinglePost)
 
 
 
   return (
     <div>
-      {Object?.keys(commentsOfOne)?.map((comment, index) =>
-      <div key={index}>
-          <p>{commentsOfOne[comment]?.content}</p>
-      </div>
+      {Object?.keys(commentsOfSinglePost)?.map((comment, index) =>
+        <div key={index} className="usernameAndComment">
+          <span id="username">{commentsOfSinglePost[comment]?.User?.username}</span>
+          <span>{commentsOfSinglePost[comment]?.content}</span>
+        </div>
 
       )}
 
