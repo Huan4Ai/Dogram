@@ -19,9 +19,6 @@ function ShowAllComments({ post }) {
 
   const commentsOfSinglePost = commentValues.filter(comment => comment.post_id === postId)
 
-  console.log(commentsOfSinglePost)
-
-
 
   return (
     <div>
