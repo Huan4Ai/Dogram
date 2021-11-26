@@ -6,15 +6,37 @@ import { getComments } from "../../store/comment";
 
 function ShowAllComments({ post }) {
   const dispatch = useDispatch();
-  const postId = post.id
+  const postId = post.id;
+  const comments = useSelector(state => state.comment);
 
   useEffect(() => {
     dispatch(getComments(postId))
   }, [dispatch, postId]);
 
+  const commentValues = Object.values(comments);
 
 
-  return null;
+  const commentsOfOne = commentValues.filter(comment => comment.post_id === postId)
+
+  console.log(commentsOfOne)
+
+
+
+  return (
+    <div>
+      {Object?.keys(commentsOfOne)?.map((comment, index) =>
+      <div key={index}>
+          <p>{commentsOfOne[comment]?.content}</p>
+      </div>
+
+      )}
+
+
+    </div>
+
+
+
+  );
 
 
 }

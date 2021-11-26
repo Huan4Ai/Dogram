@@ -17,7 +17,6 @@ function ShowAllPosts() {
 
 
 
-
   return (
     <div className="AllPostContainer">
       {Object.keys(posts).map((post,index) =>
