@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createComment } from "../../store/comment";
+import { getComments } from "../../store/comment";
 
 
 function AddComment({ post }) {
@@ -31,6 +32,7 @@ function AddComment({ post }) {
             reset();
         }
     }
+
 
 
     return (
