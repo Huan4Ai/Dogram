@@ -6,13 +6,31 @@ Dogram is a clone of Instagram. Dogram is a website to share about pictures of d
 ## Live Link
 https://ha-dogram.herokuapp.com/
 
-## Technologies implemented
+## Technologies Used
 * Javascript
 * HTML/CSS
 * Node.js
 * Express
-* Postgresql
+* PostgreSQL
 * Sequelize
 * React
 * Redux
 * AWS S3
+* Heroku
+
+## Developing
+To run this application locally for development, you'll need to:
+
+`git clone` this repo<br/>
+`cd` into the local repo<br/>
+`cd` into the backend folder and `npm install`<br/>
+Create your own `.env` file in the backend based on the `.env.example` there<br/>
+Create a user that matches the only you identified in your `.env` file in PostgreSQL<br/>
+Run `npx dotenv sequelize db:create` to create the database<br/>
+If the sequelize module is not found, try running `npx dotenv sequelize-cli db:create` and replace `sequelize` with `sequelize-cli` for the rest of these commands
+Run `npx dotenv sequelize db:migrate` to run the migrations
+Run `npx dotenv sequelize db:seed:all` to seed the database
+Open another terminal and `cd` into the frontend directory and `npm install` there
+Run `npm start` in your backend and then another `npm start` in your frontend.
+The React server will open up a browser window with the correct address, and you can begin your work from there.
+If you are planning on developing, please make a branch for your changes instead of writing directly to master.
