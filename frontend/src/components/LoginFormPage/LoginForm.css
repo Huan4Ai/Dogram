@@ -2,8 +2,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  background-image: linear-gradient(315deg, #ffffff 0%, #91a6ff 74%);
+  /* background-color: #ffffff;
+  background-image: linear-gradient(315deg, #ffffff 0%, #91a6ff 74%); */
   height: 100vh;
 
+}
+
+.right-login {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#dogramLogo {
+  width: 50%;
+  height: auto;
 }
