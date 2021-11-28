@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
 import "./AllPosts.css"
 import ShowAllComments from "../Comments/AllComments";
+import AddComment from "../Comments/AddComment";
 
 
 function ShowAllPosts() {
@@ -32,6 +33,9 @@ function ShowAllPosts() {
           </div>
           <div>
             <ShowAllComments post={posts[post]} />
+          </div>
+          <div>
+            <AddComment post={posts[post]} />
           </div>
         </div>
 

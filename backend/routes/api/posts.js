@@ -82,13 +82,13 @@ router.get('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
 
 }));
 
-router.post('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
-  const { comment } = req.body;
+router.post('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res, next) => {
+  const { content } = req.body;
 
   const newComment = await Comment.create({
     user_id: req.user.id,
     post_id: req.params.id,
-    comment
+    content
   });
 
   res.json(newComment);
