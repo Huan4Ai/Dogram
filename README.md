@@ -6,5 +6,13 @@ Dogram is a clone of Instagram. Dogram is a website to share about pictures of d
 ## Live Link
 https://ha-dogram.herokuapp.com/
 
-## Technologies
+## Technologies implemented
+* Javascript
+* HTML/CSS
+* Node.js
+* Express
+* Postgresql
+* Sequelize
 * React
+* Redux
+* AWS S3
