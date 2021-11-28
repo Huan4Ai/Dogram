@@ -42,6 +42,7 @@ function LoginFormPage() {
       </div>
       <div className="right-login">
         <img src={customLogo} alt="dogram logo" id="dogramLogo" />
+        {/* <h1>DOGRAM</h1> */}
         <form onSubmit={handleSubmit} className="login_form">
           <ul>
             {errors.map((error, idx) => (
