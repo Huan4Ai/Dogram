@@ -40,34 +40,40 @@ function LoginFormPage() {
       <div className="left-login">
         <img src={phoneScreen} alt="land page phone" />
       </div>
-      <div className="right-login">
-        <img src={customLogo} alt="dogram logo" id="dogramLogo" />
-        {/* <h1>DOGRAM</h1> */}
-        <form onSubmit={handleSubmit} className="login_form">
-          <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul>
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            placeholder="Email"
-            required
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            required
-          />
-          <button type="submit" className="login_button">Login</button>
-          <button onClick={demoButton} className="demo_user">Demo User</button>
-        </form>
-        <SignUpFormModal />
-
+      <div className="login-and-signup">
+        <div className="right-login">
+          <img src={customLogo} alt="dogram logo" id="dogramLogo" />
+          {/* <h1>DOGRAM</h1> */}
+          <form onSubmit={handleSubmit} className="login_form">
+            <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+            <input
+              type="text"
+              className="usernameInput"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              placeholder="Username or Email"
+              required
+            />
+            <input
+              type="password"
+              className="passwordInput"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              required
+            />
+            <button type="submit" className="login_button">Login</button>
+            <button onClick={demoButton} className="demo_user">Demo User</button>
+          </form>
+        </div>
+        <div className="signUpWrapper">
+          <p>Don't have an account?</p>
+          <SignUpFormModal />
+        </div>
       </div>
     </div>
   );
