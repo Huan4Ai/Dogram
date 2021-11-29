@@ -37,7 +37,7 @@ function AddComment({ post }) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input id='content' type="text" className="inputField" onChange={(e) => setContent(e.target.value)} value={content} />
+                <input id='content' type="text" className="inputField" onChange={(e) => setContent(e.target.value)} value={content} required />
                 <button type="submit">Post</button>
             </form>
         </div>

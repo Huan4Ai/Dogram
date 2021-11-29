@@ -20,7 +20,7 @@ function DeleteComment({ singleComment }) {
   if (userIdPassed === currentUserId) {
     return (
       <>
-        <i class="far fa-trash-alt" onClick={handleDelete}></i>
+        <i className="far fa-trash-alt" onClick={handleDelete}></i>
       </>
   )
 
