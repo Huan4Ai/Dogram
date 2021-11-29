@@ -35,6 +35,7 @@ function App() {
           <Route path="/my-profile" exact>
               {session ? <UserProfilePage /> : <LoginFormPage />}
           </Route>
+
         </Switch>
 
         </div>
