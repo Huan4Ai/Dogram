@@ -13,9 +13,10 @@
   flex-direction: column;
   background-color: white;
   align-items: center;
-  padding: 30px;
+  padding: 20px;
   border: 1px solid rgba(0,0,0,0.0975);
   border-radius: 2px;
+  width: 100%;
 }
 
 .login_form {
@@ -68,4 +69,11 @@
 
 .signUpWrapper {
   display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+  border: 1px solid rgba(0,0,0,0.0975);
+  border-radius: 2px;
 }
