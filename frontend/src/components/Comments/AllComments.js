@@ -10,14 +10,15 @@ function ShowAllComments({ post }) {
   const postId = post.id;
   const comments = useSelector(state => state.comment);
 
-  useEffect(() => {
-    dispatch(getComments(postId))
-  }, [dispatch, postId]);
 
   const commentValues = Object.values(comments);
 
 
   const commentsOfSinglePost = commentValues.filter(comment => comment.post_id === postId)
+
+  useEffect(() => {
+    dispatch(getComments(postId))
+  }, [dispatch, postId, commentsOfSinglePost.length]);
 
 
   return (
