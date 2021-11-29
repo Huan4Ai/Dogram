@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../store/comment";
 import "./AllComments.css"
+import DeleteComment from "./DeleteComment";
 
 function ShowAllComments({ post }) {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function ShowAllComments({ post }) {
         <div key={index} className="usernameAndComment">
           <span id="username">{commentsOfSinglePost[comment]?.User?.username}</span>
           <span>{commentsOfSinglePost[comment]?.content}</span>
+          <DeleteComment singleComment={commentsOfSinglePost[comment]} />
         </div>
 
       )}
