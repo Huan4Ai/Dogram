@@ -26,8 +26,10 @@ function ShowAllComments({ post }) {
     <div>
       {Object?.keys(commentsOfSinglePost)?.map((comment, index) =>
         <div key={index} className="usernameAndComment">
-          <span id="username">{commentsOfSinglePost[comment]?.User?.username}</span>
-          <span>{commentsOfSinglePost[comment]?.content}</span>
+          <div>
+            <span id="username">{commentsOfSinglePost[comment]?.User?.username}</span>
+            <span>{commentsOfSinglePost[comment]?.content}</span>
+          </div>
           <DeleteComment singleComment={commentsOfSinglePost[comment]} />
         </div>
 
