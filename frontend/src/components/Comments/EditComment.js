@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updataComment } from "../../store/comment";
+import { getComments } from "../../store/comment";
 
 function EditCommentIndex({ singleComment }) {
 
@@ -36,6 +38,10 @@ function EditCommentIndex({ singleComment }) {
 
 
   }
+
+  useEffect(() => {
+    dispatch(getComments(post_id))
+  }, [dispatch, post_id, content]);
 
   if (userIdPassed === user_id) {
     return (
