@@ -2,8 +2,78 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
-  background-image: linear-gradient(315deg, #ffffff 0%, #91a6ff 74%);
+  /* background-color: #ffffff;
+  background-image: linear-gradient(315deg, #ffffff 0%, #91a6ff 74%); */
   height: 100vh;
 
+}
+
+.right-login {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.0975);
+  border-radius: 2px;
+  width: 100%;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#dogramLogo {
+  width: 100px;
+  height: 100px;
+}
+
+.usernameInput {
+  width: 100%;
+  height: 25px;
+  margin: 10px;
+  border: 1px solid grey;
+  padding: 3px;
+}
+
+.passwordInput {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 15px;
+  border: 1px solid grey;
+  padding: 3px;
+}
+
+.login_button {
+  width: 100%;
+  background-color: #5271ff;
+  border-radius: 3px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  margin: 10px;
+}
+
+.demo_user {
+  width: 100%;
+  background-color: #5271ff;
+  border-radius: 3px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.signUpWrapper {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+  border: 1px solid rgba(0,0,0,0.0975);
+  border-radius: 2px;
 }
