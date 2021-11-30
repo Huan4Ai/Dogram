@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../store/comment";
 import "./AllComments.css"
 import DeleteComment from "./DeleteComment";
+import EditCommentIndex from "./EditComment";
+import EditCommentFormModal from "./EditIndex";
+
 
 function ShowAllComments({ post }) {
   const dispatch = useDispatch();
@@ -30,7 +33,13 @@ function ShowAllComments({ post }) {
             <span id="username">{commentsOfSinglePost[comment]?.User?.username}</span>
             <span>{commentsOfSinglePost[comment]?.content}</span>
           </div>
-          <DeleteComment singleComment={commentsOfSinglePost[comment]} />
+          <div>
+            {/* <Link to="/" id="editIcon">
+              <i className="far fa-edit"></i>
+            </Link> */}
+            <EditCommentFormModal singleComment={commentsOfSinglePost[comment]} />
+            <DeleteComment singleComment={commentsOfSinglePost[comment]} />
+          </div>
         </div>
 
       )}
