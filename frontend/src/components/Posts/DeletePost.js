@@ -24,11 +24,7 @@ function DeletePost({ post }) {
   if (post !== null || post !== undefined) {
     return (
       <div>
-
-        <form onSubmit={handleDelete}>
-          <button type="submit">Delete</button>
-        </form>
-
+        <i className="far fa-trash-alt" onClick={handleDelete}></i>
       </div>
 
 
