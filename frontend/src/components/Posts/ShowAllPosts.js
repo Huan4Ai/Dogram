@@ -32,7 +32,6 @@ function ShowAllPosts() {
             <p>{posts[post].description}</p>
           </div>
           <div>
-            <hr></hr>
             <ShowAllComments post={posts[post]} />
           </div>
           <div>

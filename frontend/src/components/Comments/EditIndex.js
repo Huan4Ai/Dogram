@@ -8,9 +8,7 @@ function EditCommentFormModal({ singleComment }) {
 
   return (
     <>
-      <button className="editBookingButton" onClick={() => setShowModal(true)}>
-        Edit
-      </button>
+      <i className="far fa-edit" onClick={() => setShowModal(true)}></i>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditCommentForm onClose={() => setShowModal(false)} singleComment={singleComment} />

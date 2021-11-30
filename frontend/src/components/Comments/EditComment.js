@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updataComment } from "../../store/comment";
 import { getComments } from "../../store/comment";
+import "./EditComment.css"
 
 function EditCommentForm({ singleComment, onClose }) {
 
@@ -42,14 +43,17 @@ function EditCommentForm({ singleComment, onClose }) {
 
 
   return (
-    <div>
+    <div className="editCommentContainer">
       <h3>Edit a comment</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-          <input type="text" placeholder="description" value={content} onChange={(e) => setContent(e.target.value)} required/>
-        </label>
         <div>
-          <button type="submit">Edit comment</button>
+          <label htmlFor='comment'>Comment:</label>
+        </div>
+        <div>
+          <input id='comment' type="text" value={content} onChange={(e) => setContent(e.target.value)} required/>
+        </div>
+        <div>
+          <button type="submit" id="editButton">Edit comment</button>
         </div>
       </form>
     </div>
