@@ -4,7 +4,7 @@ import { createPost } from "../../store/post";
 import { useHistory } from "react-router";
 import "./AddPost.css"
 
-const CreatePost = ({onClose}) => {
+const CreatePost = ({ onClose }) => {
   const dispatch = useDispatch();
   const user_id = useSelector((state) => state.session.user.id);
   const history = useHistory();
@@ -25,11 +25,9 @@ const CreatePost = ({onClose}) => {
       image
     };
     let createdPost = await dispatch(createPost(data));
-    if (createdPost) {
       onClose();
       reset();
       history.push("/");
-    }
 
   };
 

@@ -1,11 +1,9 @@
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../store/comment";
 import "./AllComments.css"
 import DeleteComment from "./DeleteComment";
-import EditCommentIndex from "./EditComment";
 import EditCommentFormModal from "./EditIndex";
 
 
@@ -34,9 +32,6 @@ function ShowAllComments({ post }) {
             <span>{commentsOfSinglePost[comment]?.content}</span>
           </div>
           <div>
-            {/* <Link to="/" id="editIcon">
-              <i className="far fa-edit"></i>
-            </Link> */}
             <EditCommentFormModal singleComment={commentsOfSinglePost[comment]} />
             <DeleteComment singleComment={commentsOfSinglePost[comment]} />
           </div>

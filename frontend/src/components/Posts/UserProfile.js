@@ -28,7 +28,7 @@ function UserProfilePage() {
     <div>
       <div className="userInfo">
         <div>
-          <img src={user.profilePicture} className="profileP" />
+          <img src={user.profilePicture} className="profileP" alt="userProfile" />
         </div>
         <div>
           <h2>{username}</h2>

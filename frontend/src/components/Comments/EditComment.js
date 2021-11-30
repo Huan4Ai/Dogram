@@ -39,7 +39,7 @@ function EditCommentForm({ singleComment, onClose }) {
 
   useEffect(() => {
     dispatch(getComments(post_id))
-  }, [dispatch, content]);
+  }, [dispatch, post_id, content]);
 
 
   return (

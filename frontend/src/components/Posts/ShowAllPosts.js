@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
@@ -12,9 +11,11 @@ function ShowAllPosts() {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.post);
 
+  const postsArray = Object.keys(posts)
+
   useEffect(() => {
     dispatch(getPosts())
-  }, [dispatch]);
+  }, [dispatch, postsArray.length]);
 
 
 

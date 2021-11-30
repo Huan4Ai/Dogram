@@ -74,6 +74,9 @@ function LoginFormPage() {
           <p>Don't have an account?</p>
           <SignUpFormModal />
         </div>
+        <div>
+          <a href="https://github.com/Huan4Ai/Dogram" className="footer">About</a>
+        </div>
       </div>
     </div>
   );
