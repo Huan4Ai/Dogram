@@ -6,6 +6,7 @@ import { getComments } from "../../store/comment";
 import "./AllComments.css"
 import DeleteComment from "./DeleteComment";
 import EditCommentIndex from "./EditComment";
+import EditCommentFormModal from "./EditIndex";
 
 
 function ShowAllComments({ post }) {
@@ -36,7 +37,7 @@ function ShowAllComments({ post }) {
             {/* <Link to="/" id="editIcon">
               <i className="far fa-edit"></i>
             </Link> */}
-            <EditCommentIndex singleComment={commentsOfSinglePost[comment]} />
+            <EditCommentFormModal singleComment={commentsOfSinglePost[comment]} />
             <DeleteComment singleComment={commentsOfSinglePost[comment]} />
           </div>
         </div>
