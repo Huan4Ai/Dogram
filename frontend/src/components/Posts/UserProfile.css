@@ -20,3 +20,7 @@
   align-items: center;
   margin: 5%;
 }
+
+.editAndDeleteIcons {
+  display: flex;
+}

@@ -41,8 +41,10 @@ function UserProfilePage() {
           <div key={post.id}>
             <img src={post.photo_url} alt="postImage" className="AllPostImages" />
             <p>{post.description}</p>
-            <EditPostFormModal post={post} />
-            <DeletePost post={post} />
+            <div className="editAndDeleteIcons">
+              <EditPostFormModal post={post} />
+              <DeletePost post={post} />
+            </div>
           </div>
           )}
       </div>
