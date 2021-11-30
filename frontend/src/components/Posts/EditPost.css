@@ -1,0 +1,29 @@
+.editPostContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#edit {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#edit:hover {
+  border: blue;
+  border-style: solid;
+  border-radius: 1px;
+}
+
+#editPostButton {
+  background-color: #2e69ff;
+  transition-duration: 0.4s;
+  height: 30px;
+  position: relative;
+  border-width: 0px;
+  color: white;
+  border-radius: 10px;
+  padding: 0px 20px;
+  margin-top: 5px;
+}

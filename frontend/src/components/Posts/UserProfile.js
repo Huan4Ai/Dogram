@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
 import "./UserProfile.css";
-import EditPost from "./EditPost";
 import DeletePost from "./DeletePost";
+import EditPostFormModal from "./EditPostIndex";
 
 
 function UserProfilePage() {
@@ -41,8 +41,10 @@ function UserProfilePage() {
           <div key={post.id}>
             <img src={post.photo_url} alt="postImage" className="AllPostImages" />
             <p>{post.description}</p>
-            <EditPost post={post} />
-            <DeletePost post={post} />
+            <div className="editAndDeleteIcons">
+              <EditPostFormModal post={post} />
+              <DeletePost post={post} />
+            </div>
           </div>
           )}
       </div>

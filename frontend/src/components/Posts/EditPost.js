@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatePost } from "../../store/post";
+import "./EditPost.css"
 
-function EditPost({ post }) {
+function EditPost({ post, onClose }) {
   const dispatch = useDispatch();
   const id = post.id;
   const user_id = post.user_id;
@@ -27,6 +28,7 @@ function EditPost({ post }) {
 
     if (editedPost) {
       reset();
+      onClose();
     }
 
   };
@@ -36,13 +38,18 @@ function EditPost({ post }) {
 
   return (
 
-    <div>
+    <div className="editPostContainer">
       <h3>Edit a post</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-          <input type="text" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)} />
-        </label>
-        <button type="submit">Edit post</button>
+        <div>
+          <label htmlFor='edit'>Edit description:</label>
+        </div>
+        <div>
+          <input id='edit' type="text" value={description} onChange={(e) => setDescription(e.target.value)} required />
+        </div>
+        <div>
+          <button type="submit" id="editPostButton">Edit</button>
+        </div>
       </form>
     </div>
   )
