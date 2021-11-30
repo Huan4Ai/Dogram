@@ -26,14 +26,11 @@ function App() {
           <Route path="/" exact>
             {session? <ShowAllPosts /> : <LoginFormPage />}
           </Route>
-          <Route path="/new-post" exact>
+          {/* <Route path="/new-post" exact>
             {session? <CreatePost /> : null }
-          </Route>
+          </Route> */}
           <Route path="/my-profile" exact>
               {session ? <UserProfilePage /> : <LoginFormPage /> }
-          </Route>
-          <Route path="/my-profile" exact>
-              {session ? <UserProfilePage /> : <LoginFormPage />}
           </Route>
 
         </Switch>

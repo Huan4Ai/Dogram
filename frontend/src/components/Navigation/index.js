@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from "./customLogo.jpg"
+import CreatePostFormModal from '../Posts/AddIndex';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -24,9 +25,10 @@ function Navigation({ isLoaded }){
       </div>
 
       <div className="right_header">
-        <NavLink className="plusIcon" to="/new-post">
+        {/* <NavLink className="plusIcon" to="/new-post">
           <i className="far fa-plus-square" />
-        </NavLink>
+        </NavLink> */}
+        <CreatePostFormModal />
         <NavLink className="userProfile" to="/my-profile">
           <i className="far fa-user" />
         </NavLink>

@@ -6,12 +6,8 @@
 #addCommentButton {
   background-color: white;
   transition-duration: 0.4s;
-  height: 20px;
-  /* position: relative; */
   border: 0;
   color: #3897f0;
-  border-radius: 10px;
-  margin: 5px;
 }
 
 .commentInputField {
