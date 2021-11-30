@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createComment } from "../../store/comment";
-
+import "./AddComment.css"
 
 function AddComment({ post }) {
     const dispatch = useDispatch();
@@ -35,10 +35,10 @@ function AddComment({ post }) {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input id='content' type="text" className="inputField" onChange={(e) => setContent(e.target.value)} value={content} required />
-                <button type="submit">Post</button>
+        <div className="addCommentContainer">
+            <form onSubmit={handleSubmit} className="addCommentForm">
+                <input id='content' type="text" placeholder="Add a comment.." className="commentInputField" onChange={(e) => setContent(e.target.value)} value={content} required />
+                <button type="submit" id="addCommentButton">Post</button>
             </form>
         </div>
     )

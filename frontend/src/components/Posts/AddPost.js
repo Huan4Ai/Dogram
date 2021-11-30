@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost } from "../../store/post";
 import { useHistory } from "react-router";
+import "./AddPost.css"
 
-const CreatePost = () => {
+const CreatePost = ({onClose}) => {
   const dispatch = useDispatch();
   const user_id = useSelector((state) => state.session.user.id);
   const history = useHistory();
@@ -25,6 +26,7 @@ const CreatePost = () => {
     };
     let createdPost = await dispatch(createPost(data));
     if (createdPost) {
+      onClose();
       reset();
       history.push("/");
     }
@@ -37,16 +39,21 @@ const CreatePost = () => {
   }
 
   return (
-    <div>
+    <div className="addPostContainer">
       <h3>Create a post</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-          <input type="text" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)} />
-        </label>
-        <label>
-          <input type="file" onChange={updateFile} />
-        </label>
-        <button type="submit">Create post</button>
+        <div>
+          <label htmlFor='description'>Add description:</label>
+        </div>
+        <div>
+          <input id='description' type="text" placeholder="description" value={description} onChange={(e) => setDescription(e.target.value)} required />
+        </div>
+        <div>
+          <input type="file" onChange={updateFile} required />
+        </div>
+        <div>
+          <button type="submit" id="addPostButton">Create post</button>
+        </div>
       </form>
     </div>
   )
