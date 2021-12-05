@@ -5,8 +5,9 @@ import { Redirect } from "react-router-dom";
 import './LoginForm.css';
 import SignUpFormModal from "../SignupFormPage/index"
 import phoneScreen from "./phoneScreen.png"
-import logo2 from "./logo2.png"
 import customLogo from "./customLogo.jpg"
+import dogImage1 from "./dogImage1.jpg"
+import dogImage2 from "./dogImage2.jpeg"
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -36,9 +37,9 @@ function LoginFormPage() {
   };
 
   return (
-    <div className="loginPageContainer">
-      <div className="left-login">
-        <img src={phoneScreen} alt="land page phone" />
+    <div className="loginPageContainer" >
+      <div className="left-login-image">
+        <img src={dogImage2} alt="land page phone" className="dogImages" />
       </div>
       <div className="login-and-signup">
         <div className="right-login">
