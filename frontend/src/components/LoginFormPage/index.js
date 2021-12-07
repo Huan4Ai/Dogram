@@ -89,6 +89,8 @@ function LoginFormPage() {
             <button type="submit" className="login_button">Login</button>
             <button onClick={demoButton} className="demo_user">Demo User</button>
           </form>
+          <p>Don't have an account?</p>
+          <SignUpFormModal />
         </div>
         {/* <div className="signUpWrapper">
           <p>Don't have an account?</p>
