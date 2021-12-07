@@ -60,7 +60,7 @@ function LoginFormPage() {
       {/* <div className="left-login">
         <img src={phoneScreen} alt="land page phone" />
       </div> */}
-      <div className="login-and-signup">
+      {/* <div className="login-and-signup"> */}
         <div className="right-login">
           <img src={customLogo} alt="dogram logo" id="dogramLogo" />
           {/* <h1>DOGRAM</h1> */}
@@ -94,7 +94,7 @@ function LoginFormPage() {
           <p>Don't have an account?</p>
           <SignUpFormModal />
         </div> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 }

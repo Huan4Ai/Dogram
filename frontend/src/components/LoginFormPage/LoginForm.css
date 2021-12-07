@@ -1,7 +1,8 @@
 .loginPageContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   /* position: fixed; */
   background-position: center center;
   background-size: cover;
@@ -12,22 +13,24 @@
 
 }
 
-.login-and-signup {
+/* .login-and-signup {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
   height: 100vh;
   width: 100vw;
-}
+} */
 
 .right-login {
   display: flex;
   flex-direction: column;
   background-color: white;
   align-items: center;
+  justify-content: center;
   padding: 20px;
   /* width: 100%; */
+  height: 100vh;
 }
 
 .login_form {
