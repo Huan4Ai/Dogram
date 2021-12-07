@@ -1,39 +1,25 @@
 .loginPageContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  /* background-color: #ffffff;
-  background-image: linear-gradient(315deg, #ffffff 0%, #91a6ff 74%); */
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  /* position: fixed; */
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100%;
+  /* -webkit-transition: background-image 1s ease-in-out; */
+  transition: background-image 1s ease-in-out;
 
 }
 
 .login-and-signup {
-  height: 100vh;
-  width: 100%;
-  background-color: white;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  width: 100vw;
 }
-
-.left-login-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -5;
-
-}
-
-.dogImages {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 
 .right-login {
   display: flex;
@@ -41,9 +27,7 @@
   background-color: white;
   align-items: center;
   padding: 20px;
-  /* border: 1px solid rgba(0,0,0,0.0975); */
-  /* border-radius: 2px; */
-  width: 100%;
+  /* width: 100%; */
 }
 
 .login_form {
@@ -100,9 +84,6 @@
   background-color: white;
   width: 100%;
   padding: 20px;
-  margin-top: 10px;
-  /* border: 1px solid rgba(0,0,0,0.0975);
-  border-radius: 2px; */
 }
 
 .footer {

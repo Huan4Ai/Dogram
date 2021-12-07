@@ -7,21 +7,20 @@ import './LoginForm.css';
 import SignUpFormModal from "../SignupFormPage/index"
 import phoneScreen from "./phoneScreen.png"
 import customLogo from "./customLogo.jpg"
-import dogImage1 from "./dogImage1.jpg"
-import dogImage2 from "./dogImage2.jpeg"
-import dogImage3 from "./dogImage3.jpg"
-import dogImage4 from "./dogImage4.jpg"
+
 
 function LoginFormPage() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  // if (sessionUser) return <Redirect to="/" />;
 
-  const images = [dogImage1, dogImage2, dogImage3, dogImage4]
+  const images = ["https://dogram.s3.us-east-2.amazonaws.com/dogImage1.jpg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage2.jpeg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage3.jpg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage4.jpg"
+  ]
 
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -57,10 +56,10 @@ function LoginFormPage() {
   };
 
   return (
-    <div className="loginPageContainer" >
-      <div className="left-login-image">
-        <img src={images[imageIndex]} alt="land page phone" className="dogImages" />
-      </div>
+    <div className="loginPageContainer" style={{ backgroundImage: 'url(' + images[imageIndex] + ')' }}>
+      {/* <div className="left-login">
+        <img src={phoneScreen} alt="land page phone" />
+      </div> */}
       <div className="login-and-signup">
         <div className="right-login">
           <img src={customLogo} alt="dogram logo" id="dogramLogo" />
@@ -91,13 +90,10 @@ function LoginFormPage() {
             <button onClick={demoButton} className="demo_user">Demo User</button>
           </form>
         </div>
-        <div className="signUpWrapper">
+        {/* <div className="signUpWrapper">
           <p>Don't have an account?</p>
           <SignUpFormModal />
-        </div>
-        <div>
-          <a href="https://github.com/Huan4Ai/Dogram" className="footer">About</a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
