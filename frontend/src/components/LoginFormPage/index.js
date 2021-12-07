@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -8,6 +9,8 @@ import phoneScreen from "./phoneScreen.png"
 import customLogo from "./customLogo.jpg"
 import dogImage1 from "./dogImage1.jpg"
 import dogImage2 from "./dogImage2.jpeg"
+import dogImage3 from "./dogImage3.jpg"
+import dogImage4 from "./dogImage4.jpg"
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -16,7 +19,24 @@ function LoginFormPage() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  // if (sessionUser) return <Redirect to="/" />;
+
+  const images = [dogImage1, dogImage2, dogImage3, dogImage4]
+
+  const [imageIndex, setImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timeToChangeImage = setTimeout(() => {
+      if (imageIndex === images.length - 1) {
+        setImageIndex(0)
+      } else {
+        setImageIndex(imageIndex + 1)
+      }
+    }, 5000)
+
+    return () => { clearTimeout(timeToChangeImage) }
+  }, [imageIndex, images.length])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +59,7 @@ function LoginFormPage() {
   return (
     <div className="loginPageContainer" >
       <div className="left-login-image">
-        <img src={dogImage2} alt="land page phone" className="dogImages" />
+        <img src={images[imageIndex]} alt="land page phone" className="dogImages" />
       </div>
       <div className="login-and-signup">
         <div className="right-login">
