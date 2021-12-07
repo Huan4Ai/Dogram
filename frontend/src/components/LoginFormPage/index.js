@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -6,17 +7,35 @@ import './LoginForm.css';
 import SignUpFormModal from "../SignupFormPage/index"
 import phoneScreen from "./phoneScreen.png"
 import customLogo from "./customLogo.jpg"
-import dogImage1 from "./dogImage1.jpg"
-import dogImage2 from "./dogImage2.jpeg"
+
 
 function LoginFormPage() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+
+  const images = ["https://dogram.s3.us-east-2.amazonaws.com/dogImage1.jpg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage2.jpeg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage3.jpg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage4.jpg"
+  ]
+
+  const [imageIndex, setImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timeToChangeImage = setTimeout(() => {
+      if (imageIndex === images.length - 1) {
+        setImageIndex(0)
+      } else {
+        setImageIndex(imageIndex + 1)
+      }
+    }, 5000)
+
+    return () => { clearTimeout(timeToChangeImage) }
+  }, [imageIndex, images.length])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,11 +56,11 @@ function LoginFormPage() {
   };
 
   return (
-    <div className="loginPageContainer" >
-      <div className="left-login-image">
-        <img src={dogImage2} alt="land page phone" className="dogImages" />
-      </div>
-      <div className="login-and-signup">
+    <div className="loginPageContainer" style={{ backgroundImage: 'url(' + images[imageIndex] + ')' }}>
+      {/* <div className="left-login">
+        <img src={phoneScreen} alt="land page phone" />
+      </div> */}
+      {/* <div className="login-and-signup"> */}
         <div className="right-login">
           <img src={customLogo} alt="dogram logo" id="dogramLogo" />
           {/* <h1>DOGRAM</h1> */}
@@ -70,15 +89,22 @@ function LoginFormPage() {
             <button type="submit" className="login_button">Login</button>
             <button onClick={demoButton} className="demo_user">Demo User</button>
           </form>
-        </div>
-        <div className="signUpWrapper">
           <p>Don't have an account?</p>
           <SignUpFormModal />
+        <div className="footer">
+          <a href="https://github.com/Huan4Ai/Dogram">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://github.com/Huan4Ai/Dogram">
+            <i class="fab fa-linkedin"></i>
+          </a>
         </div>
-        <div>
-          <a href="https://github.com/Huan4Ai/Dogram" className="footer">About</a>
         </div>
-      </div>
+        {/* <div className="signUpWrapper">
+          <p>Don't have an account?</p>
+          <SignUpFormModal />
+        </div> */}
+      {/* </div> */}
     </div>
   );
 }
