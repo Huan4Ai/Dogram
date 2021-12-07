@@ -91,6 +91,14 @@ function LoginFormPage() {
           </form>
           <p>Don't have an account?</p>
           <SignUpFormModal />
+        <div className="footer">
+          <a href="https://github.com/Huan4Ai/Dogram">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://github.com/Huan4Ai/Dogram">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
         </div>
         {/* <div className="signUpWrapper">
           <p>Don't have an account?</p>
