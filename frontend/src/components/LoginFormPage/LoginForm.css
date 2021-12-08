@@ -31,17 +31,17 @@
   padding: 20px;
   max-width: 250px;
   height: 100vh;
-  animation: right-to-left 2s ease-in-out forwards;
+  animation: right-to-left 2s ease-in-out backwards;
   animation-delay: 2s;
 }
 
 @keyframes right-to-left {
-  100% {
-    transform: translateX(0);
-  }
-
   0% {
     transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 
 }
