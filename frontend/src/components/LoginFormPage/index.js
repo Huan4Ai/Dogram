@@ -17,7 +17,7 @@ function LoginFormPage() {
 
 
   const images = ["https://dogram.s3.us-east-2.amazonaws.com/dogImage1.jpg",
-    "https://dogram.s3.us-east-2.amazonaws.com/dogImage2.jpeg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage2.jpg",
     "https://dogram.s3.us-east-2.amazonaws.com/dogImage3.jpg",
     "https://dogram.s3.us-east-2.amazonaws.com/dogImage4.jpg"
   ]
@@ -89,14 +89,16 @@ function LoginFormPage() {
             <button type="submit" className="login_button">Login</button>
             <button onClick={demoButton} className="demo_user">Demo User</button>
           </form>
+        <div className="signUpWrapper">
           <p>Don't have an account?</p>
           <SignUpFormModal />
+          </div>
         <div className="footer">
           <a href="https://github.com/Huan4Ai/Dogram">
-            <i class="fab fa-github"></i>
+            <i className="fab fa-github"></i>
           </a>
           <a href="https://github.com/Huan4Ai/Dogram">
-            <i class="fab fa-linkedin"></i>
+            <i className="fab fa-linkedin"></i>
           </a>
         </div>
         </div>
