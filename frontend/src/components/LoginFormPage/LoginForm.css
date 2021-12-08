@@ -29,9 +29,25 @@
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  min-width: 250px;
+  max-width: 250px;
   height: 100vh;
+  animation: right-to-left 2s ease-in-out forwards;
+  animation-delay: 2s;
 }
+
+@keyframes right-to-left {
+  100% {
+    transform: translateX(0);
+  }
+
+  0% {
+    transform: translateX(100%);
+  }
+
+}
+
+
+
 
 .login_form {
   display: flex;
