@@ -32,7 +32,7 @@ function Navigation({ isLoaded }){
         <NavLink className="userProfile" to="/my-profile">
           <i className="far fa-user" />
         </NavLink>
-        <ProfileButton user={sessionUser} />
+        {/* <ProfileButton user={sessionUser} /> */}
       </div>
 
     </div>

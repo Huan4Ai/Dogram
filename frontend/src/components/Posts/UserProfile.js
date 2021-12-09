@@ -5,6 +5,7 @@ import { getPosts } from "../../store/post";
 import "./UserProfile.css";
 import DeletePost from "./DeletePost";
 import EditPostFormModal from "./EditPostIndex";
+import * as sessionActions from '../../store/session';
 
 
 function UserProfilePage() {
@@ -20,6 +21,11 @@ function UserProfilePage() {
     dispatch(getPosts());
   }, [dispatch]);
 
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+  };
+
   const postLists = Object.values(posts);
 
   const userPosts = postLists.filter(post => post.user_id === userId)
@@ -30,10 +36,14 @@ function UserProfilePage() {
         <div>
           <img src={user.profilePicture} className="profileP" alt="userProfile" />
         </div>
-        <div>
-          <h2>{username}</h2>
-          <h4>{userPosts.length} Posts # Following # Followers</h4>
-          <p>{user.about}</p>
+        <div className="profileRight">
+          <div className="usernameAndLogout">
+            <h2>{username}</h2>
+            <button onClick={logout}>Log Out</button>
+          </div>
+          <div className="about">
+            <p>{user.about}</p>
+          </div>
         </div>
       </div>
       <div className="singlePost">
