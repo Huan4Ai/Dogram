@@ -17,9 +17,9 @@ function LoginFormPage() {
 
 
   const images = ["https://dogram.s3.us-east-2.amazonaws.com/dogImage1.jpg",
-    "https://dogram.s3.us-east-2.amazonaws.com/dogImage2.jpg",
-    "https://dogram.s3.us-east-2.amazonaws.com/dogImage3.jpg",
-    "https://dogram.s3.us-east-2.amazonaws.com/dogImage4.jpg"
+    // "https://dogram.s3.us-east-2.amazonaws.com/dogImage2.jpg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage4.jpg",
+    "https://dogram.s3.us-east-2.amazonaws.com/dogImage3.jpg"
   ]
 
   const [imageIndex, setImageIndex] = useState(0);
@@ -94,11 +94,11 @@ function LoginFormPage() {
           <SignUpFormModal />
           </div>
         <div className="footer">
-          <a href="https://github.com/Huan4Ai/Dogram">
+          <a href="https://github.com/Huan4Ai/Dogram" id="githubIcon">
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://github.com/Huan4Ai/Dogram">
-            <i className="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/huan-ai/">
+            <i className="fab fa-linkedin" id="linkedinIcon"></i>
           </a>
         </div>
         </div>
