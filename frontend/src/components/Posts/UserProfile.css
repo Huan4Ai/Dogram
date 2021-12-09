@@ -5,9 +5,6 @@
   flex-wrap: wrap;
 }
 
-.userInfo {
-  text-align: center;
-}
 
 .profileP {
   border-radius: 50%;
@@ -19,6 +16,17 @@
   justify-content: center;
   align-items: center;
   margin: 5%;
+  text-align: center;
+}
+
+.usernameAndLogout {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.profileRight {
+  margin-left: 5%;
 }
 
 .editAndDeleteIcons {
