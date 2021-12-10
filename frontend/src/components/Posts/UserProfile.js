@@ -32,14 +32,14 @@ function UserProfilePage() {
 
   return (
     <div>
-      <div className="userInfo">
+      <div className="profile-header">
         <div>
           <img src={user.profilePicture} className="profileP" alt="userProfile" />
         </div>
         <div className="profileRight">
-          <div className="usernameAndLogout">
+          <div className="user-info">
             <h2>{username}</h2>
-            <button onClick={logout}>Log Out</button>
+            <button onClick={logout} className="button-55">Log Out</button>
           </div>
           <div className="about">
             <p>{user.about}</p>
