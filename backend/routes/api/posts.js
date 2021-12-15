@@ -7,7 +7,6 @@ const { User, Post, Comment, Like } = require('../../db/models');
 // const singlePublicFileUpload = require("../../awsS3");
 // const singleMulterUpload = require("../../awsS3");
 const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
-const { like } = require('sequelize/types/lib/operators');
 
 
 const router = express.Router();
