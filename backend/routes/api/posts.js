@@ -7,6 +7,7 @@ const { User, Post, Comment, Like } = require('../../db/models');
 // const singlePublicFileUpload = require("../../awsS3");
 // const singleMulterUpload = require("../../awsS3");
 const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
+const { like } = require('sequelize/types/lib/operators');
 
 
 const router = express.Router();
@@ -93,9 +94,9 @@ router.post('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res, ne
 
   res.json(newComment);
 
-}))
+}));
 
-router.get('/:id/likes', asyncHandler(async (req, res, next) => {
+router.get('/:id(\\d+)/likes', asyncHandler(async (req, res) => {
   const allLikes = await Like.findAll({
     where: { post_id: req.params.id }
   });
@@ -103,25 +104,42 @@ router.get('/:id/likes', asyncHandler(async (req, res, next) => {
   return res.json(allLikes);
 
 
-}))
+}));
 
-router.post('/:id/likes', asyncHandler(async (req, res, next) => {
-  const { user_id, post_id } = req.body;
+router.post('/:id(\\d+)/likes', requireAuth, asyncHandler(async (req, res) => {
   const alreadyLiked = await Like.findOne({
     where: {
-      user_id: user_id,
-      post_id: post_id
+      user_id: req.user.id,
+      post_id: req.params.id
     },
   });
 
   if (!alreadyLiked) {
     const newLike = await Like.create({
-      user_id,
-      post_id
+      user_id: req.user.id,
+      post_id: req.params.id
     });
 
-    res.json(newLike);
+    return res.json(newLike);
 
+  };
+
+}));
+
+router.delete('/:id(\\d+)/likes/:userId(\\d+)', asyncHandler(async (req, res) => {
+  const { id, userId } = req.params;
+
+  const likeToDelete = await Like.findOne({
+    where: {
+      user_id: userId,
+      post_id: id
+    },
+  });
+
+  if (likeToDelete) {
+    await likeToDelete.destroy();
+
+    return res.json(likeToDelete);
   };
 
 
