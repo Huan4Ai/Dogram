@@ -1,12 +1,13 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { requireAuth } = require('../../utils/auth');
-const { User, Post, Comment } = require('../../db/models');
+const { User, Post, Comment, Like } = require('../../db/models');
 // import { singlePublicFileUpload } from '../../awsS3';
 // import { singleMulterUpload } from '../../awsS3';
 // const singlePublicFileUpload = require("../../awsS3");
 // const singleMulterUpload = require("../../awsS3");
 const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
+const { like } = require('sequelize/types/lib/operators');
 
 
 const router = express.Router();
@@ -94,6 +95,38 @@ router.post('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res, ne
   res.json(newComment);
 
 }))
+
+router.get('/:id/likes', asyncHandler(async (req, res, next) => {
+  const allLikes = await Like.findAll({
+    where: { post_id: req.params.id }
+  });
+
+  return res.json(allLikes);
+
+
+}))
+
+router.post('/:id/likes', asyncHandler(async (req, res, next) => {
+  const { user_id, post_id } = req.body;
+  const alreadyLiked = await Like.findOne({
+    where: {
+      user_id: user_id,
+      post_id: post_id
+    },
+  });
+
+  if (!alreadyLiked) {
+    const newLike = await Like.create({
+      user_id,
+      post_id
+    });
+
+    res.json(newLike);
+
+  };
+
+
+}));
 
   // const photo_url = await singlePublicFileUpload(req.file);
 
