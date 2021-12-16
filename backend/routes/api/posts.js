@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { requireAuth } = require('../../utils/auth');
-const { User, Post, Comment } = require('../../db/models');
+const { User, Post, Comment, Like } = require('../../db/models');
 // import { singlePublicFileUpload } from '../../awsS3';
 // import { singleMulterUpload } from '../../awsS3';
 // const singlePublicFileUpload = require("../../awsS3");
@@ -11,7 +11,7 @@ const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
 
 const router = express.Router();
 
-router.get('/', requireAuth, asyncHandler(async (req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
   const allPosts = await Post.findAll({
     include: [
       {
@@ -19,6 +19,9 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
       }, {
         model: Comment,
       },
+      {
+        model: Like
+      }
     ],
   });
   return res.json(allPosts);
@@ -93,7 +96,56 @@ router.post('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res, ne
 
   res.json(newComment);
 
-}))
+}));
+
+router.get('/:id(\\d+)/likes', asyncHandler(async (req, res) => {
+  const allLikes = await Like.findAll({
+    where: { post_id: req.params.id }
+  });
+
+  return res.json(allLikes);
+
+
+}));
+
+router.post('/:id(\\d+)/likes', requireAuth, asyncHandler(async (req, res) => {
+  const alreadyLiked = await Like.findOne({
+    where: {
+      user_id: req.user.id,
+      post_id: req.params.id
+    },
+  });
+
+  if (!alreadyLiked) {
+    const newLike = await Like.create({
+      user_id: req.user.id,
+      post_id: req.params.id
+    });
+
+    return res.json(newLike);
+
+  };
+
+}));
+
+router.delete('/:id(\\d+)/likes/:userId(\\d+)', asyncHandler(async (req, res) => {
+  const { id, userId } = req.params;
+
+  const likeToDelete = await Like.findOne({
+    where: {
+      user_id: userId,
+      post_id: id
+    },
+  });
+
+  if (likeToDelete) {
+    await likeToDelete.destroy();
+
+    return res.json(likeToDelete);
+  };
+
+
+}));
 
   // const photo_url = await singlePublicFileUpload(req.file);
 
