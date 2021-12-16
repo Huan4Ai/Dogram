@@ -128,6 +128,18 @@ export const createLike = (data, id) => async (dispatch) => {
 
 };
 
+export const deleteLike = (id, userId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/posts/${id}/likes/${userId}`, {
+    method: "DELETE"
+  });
+
+  if (response.ok) {
+    const booleanResult = await response.json();
+    return booleanResult
+  }
+
+};
+
 
 
 const postReducer = (state = {}, action) => {
