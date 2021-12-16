@@ -7,12 +7,11 @@ const { User, Post, Comment, Like } = require('../../db/models');
 // const singlePublicFileUpload = require("../../awsS3");
 // const singleMulterUpload = require("../../awsS3");
 const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
-const { like } = require('sequelize/types/lib/operators');
 
 
 const router = express.Router();
 
-router.get('/', requireAuth, asyncHandler(async (req, res) => {
+router.get('/', asyncHandler(async (req, res) => {
   const allPosts = await Post.findAll({
     include: [
       {
@@ -20,6 +19,9 @@ router.get('/', requireAuth, asyncHandler(async (req, res) => {
       }, {
         model: Comment,
       },
+      {
+        model: Like
+      }
     ],
   });
   return res.json(allPosts);
