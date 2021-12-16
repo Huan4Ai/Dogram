@@ -98,6 +98,8 @@ router.post('/:id(\\d+)/comments', requireAuth, asyncHandler(async (req, res, ne
 
 }));
 
+// Like routes
+
 router.get('/:id(\\d+)/likes', asyncHandler(async (req, res) => {
   const allLikes = await Like.findAll({
     where: { post_id: req.params.id }
@@ -140,8 +142,9 @@ router.delete('/:id(\\d+)/likes/:userId(\\d+)', asyncHandler(async (req, res) =>
 
   if (likeToDelete) {
     await likeToDelete.destroy();
-
-    return res.json(likeToDelete);
+    return res.json(true);
+  } else {
+    return res.json(false);
   };
 
 
