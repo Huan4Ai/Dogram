@@ -106,7 +106,7 @@ export const getLikes = (id) => async (dispatch) => {
   if (response.ok) {
     const likes = await response.json();
 
-    dispatch(getLikes(likes));
+    dispatch(loadLikes(likes));
   }
 
 };
@@ -122,7 +122,7 @@ export const createLike = (data, id) => async (dispatch) => {
 
   if (response.ok) {
     const like = await response.json();
-    dispatch(createLike(like));
+    dispatch(addLike(like));
   }
 
 
