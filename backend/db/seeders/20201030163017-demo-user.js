@@ -14,14 +14,14 @@ module.exports = {
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser1',
+        username: 'DogFan',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
         profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
         about: "A dog lover",
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'PuppyLover',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
         profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
         about: "A dog lover",
