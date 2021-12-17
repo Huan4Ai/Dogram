@@ -7,6 +7,11 @@
   font-size: 22px;
 }
 
+.likeIcon-Red {
+  font-size: 22px;
+  color: red;
+}
+
 .likeCount {
   margin-top: 5px;
 }

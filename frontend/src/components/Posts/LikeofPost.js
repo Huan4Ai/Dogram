@@ -13,6 +13,9 @@ function LikeAPost({post}) {
       <div className="likeIcon">
         <i class="far fa-heart"></i>
       </div>
+      <div className="likeIcon-Red">
+        <i class="fas fa-heart"></i>
+      </div>
       <p className="likeCount">{numOfLikes} {numOfLikes <= 1 ? "like" : "likes"}</p>
     </div>
   )
