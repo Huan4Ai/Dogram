@@ -5,6 +5,10 @@ const ADD_POST = 'posts/ADD_POST';
 const EDIT_POST = 'posts/EDIT_POST';
 const DELETE_POST = 'posts/DELETE_POST';
 
+const GET_LIKES = "posts/GET_LIKES";
+const ADD_LIKE = "posts/ADD_LIKE";
+const DELETE_LIKE = "posts/DELETE_LIKE"
+
 const loadPosts = (list) => ({
   type: LOAD_POSTS,
   list
@@ -23,6 +27,16 @@ const editPost = (post) => ({
 const removePost = (postId) => ({
   type: DELETE_POST,
   postId
+})
+
+const loadLikes = (likes) => ({
+  type: GET_LIKES,
+  likes
+})
+
+const addLike = (like) => ({
+  type: ADD_LIKE,
+  like
 })
 
 export const getPosts = () => async dispatch => {
@@ -82,6 +96,46 @@ export const deletePost = (postId) => async (dispatch) => {
     const data = await response.json();
     dispatch(removePost(data));
     return data;
+  }
+
+};
+
+export const getLikes = (id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/posts/${id}/likes`);
+
+  if (response.ok) {
+    const likes = await response.json();
+
+    dispatch(loadLikes(likes));
+  }
+
+};
+
+export const createLike = (data, id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/posts/${id}/likes`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+
+  if (response.ok) {
+    const like = await response.json();
+    dispatch(addLike(like));
+  }
+
+
+};
+
+export const deleteLike = (id, userId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/posts/${id}/likes/${userId}`, {
+    method: "DELETE"
+  });
+
+  if (response.ok) {
+    const booleanResult = await response.json();
+    return booleanResult
   }
 
 };

@@ -37,6 +37,7 @@
 .usernameAndDescription{
   display: flex;
   padding-left: 5px;
+  margin-top: -15px;
 }
 
 #username {
