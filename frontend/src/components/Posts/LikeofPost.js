@@ -10,8 +10,6 @@ function LikeAPost({ post }) {
 
   let numOfLikes = post?.Likes?.length
 
-
-
   const isLiked = () => {
     let likes = post.Likes;
 
@@ -33,7 +31,7 @@ function LikeAPost({ post }) {
       {/* <div className="likeIcon-Red">
         <i class="fas fa-heart"></i>
       </div> */}
-      {isLiked ? (
+      {isLiked() ? (
         <div className="likeIcon-Red">
           <i className="fas fa-heart"></i>
         </div>
