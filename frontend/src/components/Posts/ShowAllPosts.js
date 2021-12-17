@@ -5,6 +5,7 @@ import { getPosts } from "../../store/post";
 import "./AllPosts.css"
 import ShowAllComments from "../Comments/AllComments";
 import AddComment from "../Comments/AddComment";
+import LikeAPost from "./LikeofPost";
 
 
 function ShowAllPosts() {
@@ -28,6 +29,7 @@ function ShowAllPosts() {
             <span className="userName">{posts[post]?.User?.username}</span>
           </div>
           <img src={posts[post].photo_url} alt="postImage" className="AllPostImages" />
+          <LikeAPost post={posts[post]} />
           <div className="usernameAndDescription">
             <p id="username">{posts[post]?.User?.username}</p>
             <p>{posts[post].description}</p>

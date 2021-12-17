@@ -1,0 +1,12 @@
+.likeContainer {
+  padding-left: 5px;
+  margin-top: 5px;
+}
+
+.likeIcon {
+  font-size: 22px;
+}
+
+.likeCount {
+  margin-top: 5px;
+}
