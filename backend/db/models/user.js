@@ -77,9 +77,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       about: {
         type: DataTypes.TEXT,
-      },
-      isPrivate: {
-        type: DataTypes.BOOLEAN,
       }
     },
     {
