@@ -30,10 +30,6 @@ module.exports = {
         type: Sequelize.TEXT,
         defaultValue: "A dog lover"
       },
-      isPrivate: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
