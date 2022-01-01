@@ -10,22 +10,29 @@ module.exports = {
         username: 'DemoDoggy',
         hashedPassword: bcrypt.hashSync('password'),
         profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
-        about: "A dog lover",
+        about: "Hi I'm a demo doggy^",
       },
       {
         email: 'DogFan@gmail.com',
         username: 'DogFan',
         hashedPassword: bcrypt.hashSync('password'),
-        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
-        about: "A dog lover",
+        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/dogfan_icon.jpg",
+        about: "A dog fan",
       },
       {
         email: 'PuppyLover@gmail.com',
         username: 'PuppyLover',
         hashedPassword: bcrypt.hashSync('password'),
-        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
-        about: "A dog lover",
+        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/corgi_icon.png",
+        about: "A puppy lover",
       },
+      {
+        email: 'SamoyedLover@gmail.com',
+        username: 'SamoyedLover',
+        hashedPassword: bcrypt.hashSync('password'),
+        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/samoyed_icon.png",
+        about: "A samoyed lover",
+      }
     ], {});
   },
 
