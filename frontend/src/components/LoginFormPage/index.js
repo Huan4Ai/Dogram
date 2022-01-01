@@ -51,7 +51,7 @@ function LoginFormPage() {
     setCredential("")
     setPassword("")
     return dispatch(
-      sessionActions.login({ credential: "Demo-lition", password: "password" })
+      sessionActions.login({ credential: "DemoDoggy", password: "password" })
     );
   };
 

@@ -13,14 +13,14 @@ module.exports = {
     */
     return queryInterface.bulkInsert('Comments', [
       {
-        "user_id": 1,
+        "user_id": 2,
         "post_id": 1,
         "content": "What a cute puppy!",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        "user_id": 1,
+        "user_id": 3,
         "post_id": 1,
         "content": "I love it!",
         createdAt: new Date(),

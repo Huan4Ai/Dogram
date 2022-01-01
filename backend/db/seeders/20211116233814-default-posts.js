@@ -35,8 +35,8 @@ module.exports = {
       },
       {
         "user_id": 3,
-        "description": "Running in the sea ^",
-        "photo_url": "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=688&q=80",
+        "description": "Thank you ^",
+        "photo_url": "https://images.unsplash.com/photo-1554830072-52d78d0d4c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
         createdAt: new Date(),
         updatedAt: new Date()
       }

@@ -7,7 +7,7 @@ module.exports = {
     return queryInterface.bulkInsert('Users', [
       {
         email: 'demo@user.io',
-        username: 'Demo-lition',
+        username: 'DemoDoggy',
         hashedPassword: bcrypt.hashSync('password'),
         profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
         about: "A dog lover",
@@ -32,7 +32,7 @@ module.exports = {
   down: async (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Users', {
-      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
+      username: { [Op.in]: ['DemoDoggy', 'DogFan', 'PuppyLover'] }
     }, {});
   }
 };
