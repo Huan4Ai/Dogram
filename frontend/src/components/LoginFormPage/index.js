@@ -49,8 +49,6 @@ function LoginFormPage() {
   };
 
   const demoButton = async () => {
-    setCredential("")
-    setPassword("")
     return dispatch(
       sessionActions.login({ credential: "DemoDoggy", password: "password" })
     );

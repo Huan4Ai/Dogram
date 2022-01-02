@@ -22,7 +22,6 @@ function ShowAllComments({ post }) {
     dispatch(getComments(postId))
   }, [dispatch, postId, commentsOfSinglePost.length]);
 
-
   return (
     <div>
       {Object?.keys(commentsOfSinglePost)?.map((comment, index) =>
