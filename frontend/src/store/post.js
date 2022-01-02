@@ -44,6 +44,7 @@ export const getPosts = () => async dispatch => {
 
   if (response.ok) {
     const list = await response.json();
+    // list.sort((a, b) => b.id - a.id);
     // console.log(list)
     dispatch(loadPosts(list))
   }
