@@ -16,14 +16,14 @@ module.exports = {
         email: 'DogFan@gmail.com',
         username: 'DogFan',
         hashedPassword: bcrypt.hashSync('password'),
-        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
+        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/dogfan_icon3.jpg",
         about: "A dog fan",
       },
       {
         email: 'PuppyLover@gmail.com',
         username: 'PuppyLover',
         hashedPassword: bcrypt.hashSync('password'),
-        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/icon.jpg",
+        profilePicture: "https://dogram.s3.us-east-2.amazonaws.com/puppylover_corgi.png",
         about: "A puppy lover",
       },
       {
