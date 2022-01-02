@@ -5,8 +5,6 @@ const asyncHandler = require("express-async-handler");
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { User } = require("../../db/models");
-// const { singleMulterUpload } = require("../../awsS3.js")
-// const { singlePublicFileUpload } = require("../../awsS3.js");
 
 const router = express.Router();
 
@@ -30,7 +28,7 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
-// Sign up - no profile picture
+// Sign up
 router.post(
   '',
   validateSignup,
@@ -45,32 +43,5 @@ router.post(
     });
   }),
 );
-
-// Sign up - with profile picture
-// router.post(
-//   "/with-profilePicture",
-//   singleMulterUpload("image"),
-//   validateSignup,
-//   asyncHandler(async (req, res) => {
-//     const { email, password, username } = req.body;
-//     const profilePicture = await singlePublicFileUpload(req.file);
-//     const user = await User.signup({
-//       username,
-//       email,
-//       password,
-//       profilePicture,
-//     });
-
-//     setTokenCookie(res, user);
-
-//     return res.json({
-//       user,
-//     });
-
-//   })
-
-
-
-// );
 
 module.exports = router;
