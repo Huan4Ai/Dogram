@@ -1,7 +1,3 @@
-.AllPostImages {
-  height: 400px;
-  width: 400px;
-}
 
 .AllPostContainer {
   display: flex;
@@ -14,7 +10,14 @@
   background-color: #ffffff;
   border: 1px solid rgba(0,0,0,0.0975);
   border-radius: 2px;
-  margin: 20px
+  margin: 20px;
+  height: fit-content;
+  width: 600px;
+}
+
+.AllPostImages {
+  width: 100%;
+  height: 600px;
 }
 
 .profilePicture {
