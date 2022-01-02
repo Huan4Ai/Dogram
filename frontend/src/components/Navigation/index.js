@@ -1,13 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from "./customLogo.jpg"
 import CreatePostFormModal from '../Posts/AddIndex';
+import * as sessionActions from "../../store/session"
 
 function Navigation({ isLoaded }){
-  const sessionUser = useSelector(state => state.session.user);
 
 
   return (
@@ -19,20 +17,17 @@ function Navigation({ isLoaded }){
         </NavLink>
       </div>
 
-      <div className="mid_search">
+      {/* <div className="mid_search">
         <i className="fas fa-search" />
         <input type="text" placeholder="Search" className="center_inputField" />
-      </div>
+      </div> */}
 
       <div className="right_header">
-        {/* <NavLink className="plusIcon" to="/new-post">
-          <i className="far fa-plus-square" />
-        </NavLink> */}
         <CreatePostFormModal />
         <NavLink className="userProfile" to="/my-profile">
           <i className="far fa-user" />
         </NavLink>
-        {/* <ProfileButton user={sessionUser} /> */}
+        <i class="fas fa-sign-out-alt"></i>
       </div>
 
     </div>

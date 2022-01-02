@@ -5,52 +5,35 @@
   padding: 1px;
   background-color: white;
   width: 100%;
-
   position: sticky;
   top: 0;
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5);
 }
 
-/* .profile-dropdown {
-  position: absolute;
-} */
-
 .left_logoImage {
   width: 70px;
-  margin-right: 20px;
+  margin-right: 80px;
 }
 
-.mid_search {
+/* .mid_search {
   display: flex;
   align-items: center;
   border: 1px solid lightgray;
   padding: 5px;
   border-radius: 5px;
-}
+} */
 
-.center_inputField {
+/* .center_inputField {
   border: none;
   outline: none;
   background-color: transparent;
-}
+} */
 
 .right_header{
   display: flex;
   align-items: center;
-  margin-left: 25px;
+  margin-left: 80px;
 }
-
-/* .profileButton{
-  color: grey;
-  cursor: pointer;
-  font-size: large;
-} */
-
-/* .plusIcon {
-  font-size: 25px; */
-  /* margin-right: 20px; */
-  /* color: black;
-} */
 
 .userProfile {
   font-size: 25px;
