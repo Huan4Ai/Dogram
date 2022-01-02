@@ -22,8 +22,8 @@ router.get('/', asyncHandler(async (req, res) => {
       {
         model: Like
       }
-    ],
-  });
+    ]
+  }, );
   return res.json(allPosts);
 }));
 

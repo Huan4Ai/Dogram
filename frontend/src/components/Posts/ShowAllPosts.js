@@ -42,7 +42,7 @@ function ShowAllPosts() {
           </div>
         </div>
 
-      )}
+      ).reverse()}
     </div>
 
   );
