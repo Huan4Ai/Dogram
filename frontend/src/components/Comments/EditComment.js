@@ -13,7 +13,9 @@ function EditCommentForm({ singleComment, onClose }) {
   const user_id = useSelector((state) => state.session.user.id);
   const post_id = singleComment.post_id;
 
-  const [content, setContent] = useState("");
+  const current_username = useSelector((state) => state.session.user.username);
+
+  const [content, setContent] = useState(singleComment.content);
 
   const reset = () => {
     setContent("");
@@ -37,26 +39,27 @@ function EditCommentForm({ singleComment, onClose }) {
 
   }
 
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    onClose();
+  };
+
   useEffect(() => {
     dispatch(getComments(post_id))
   }, [dispatch, post_id, content]);
 
 
   return (
-    <div className="editCommentContainer">
-      <h3>Edit a comment</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='comment'>Comment:</label>
-        </div>
-        <div>
-          <input id='comment' type="text" value={content} onChange={(e) => setContent(e.target.value)} required/>
-        </div>
-        <div>
-          <button type="submit" id="editButton">Edit comment</button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className="editCommentContainer">
+      <p id="usernameTitle">{current_username}</p>
+      <div>
+        <input type="text" value={content} onChange={(e) => setContent(e.target.value)} className="editCommentInput" placeholder="Edit your comment here." required />
+      </div>
+      <div className="editCommentButtons">
+        <button type="submit" id="submitButtonModal">Submit</button>
+        <button type="button" onClick={handleCancelClick} id="cancelButtonModal">Cancel</button>
+      </div>
+    </form>
   )
 
 

@@ -32,4 +32,5 @@
 .addPostIcon {
   font-size: 28px;
   color: black;
+  cursor: pointer;
 }

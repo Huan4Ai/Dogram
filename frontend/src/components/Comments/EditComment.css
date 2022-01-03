@@ -1,19 +1,45 @@
 .editCommentContainer {
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 300px;
 }
 
-#editButton {
-  background-color: #2e69ff;
-  transition-duration: 0.4s;
-  height: 30px;
-  min-width: 30px;
-  position: relative;
-  border-width: 0px;
+#usernameTitle {
+  font-size: 11pt;
+  color: #858383;
+  padding: 10px
+}
+
+.editCommentInput {
+  width: 86%;
+  font-size: 14pt;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #d6d5d5;
+  background: transparent;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.editCommentButtons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+  width: 100%;
+  /* padding-top: 10px; */
+}
+
+#submitButtonModal {
+  background-color: #0095f6;
   color: white;
-  border-radius: 10px;
-  padding: 0px 20px;
-  margin: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#cancelButtonModal {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
 }

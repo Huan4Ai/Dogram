@@ -3,9 +3,17 @@ import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 import logo from "./customLogo.jpg"
 import CreatePostFormModal from '../Posts/AddIndex';
-import * as sessionActions from "../../store/session"
+import * as sessionActions from "../../store/session";
+import { useDispatch } from 'react-redux';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
+
+  const dispatch = useDispatch();
+
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+  };
 
 
   return (
@@ -27,7 +35,9 @@ function Navigation({ isLoaded }){
         <NavLink className="userProfile" to="/my-profile">
           <i className="far fa-user" />
         </NavLink>
-        <i class="fas fa-sign-out-alt"></i>
+        <div className='logoutButton'>
+          <i className="fas fa-sign-out-alt" onClick={logout}></i>
+        </div>
       </div>
 
     </div>
