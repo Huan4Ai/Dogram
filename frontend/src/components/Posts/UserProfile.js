@@ -26,7 +26,7 @@ function UserProfilePage() {
   const userPosts = postLists.filter(post => post.user_id === userId)
 
   return (
-    <div>
+    <div className="myProfilePageWrapper">
       <div className="profile-header">
         <div>
           <img src={user.profilePicture} className="profileP" alt="userProfile" />
@@ -40,11 +40,11 @@ function UserProfilePage() {
           </div>
         </div>
       </div>
-      <div className="singlePost">
+      <div className="user_posts_wrapper">
         {userPosts.map(post =>
-          <div key={post.id}>
-            <img src={post.photo_url} alt="postImage" className="AllPostImages" />
-            <p>{post.description}</p>
+          <div key={post.id} className="post_image_wrapper">
+            <img src={post.photo_url} alt="postImage" className="postImageProfilePage" />
+            {/* <p>{post.description}</p> */}
             <div className="editAndDeleteIcons">
               <EditPostFormModal post={post} />
               <DeletePost post={post} />
