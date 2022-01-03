@@ -9,7 +9,7 @@ function EditPost({ post, onClose }) {
   const user_id = post.user_id;
   const photo_url = post.photo_url;
 
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(post.description);
 
   const reset = () => {
     setDescription("");

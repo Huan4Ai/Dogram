@@ -34,12 +34,14 @@
   color: white;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 15px;
+  font-weight: 600;
 }
 
 #cancelButtonModal {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 15px;
+  color: #777676;
 }
