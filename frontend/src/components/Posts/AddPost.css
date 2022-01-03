@@ -1,8 +1,15 @@
+
+.addPostIcon {
+  font-size: 28px;
+  color: black;
+  cursor: pointer;
+}
+
 .addPostContainer {
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  min-width: 50%;
 }
 
 #description {
@@ -27,10 +34,4 @@
   border-radius: 10px;
   padding: 0px 20px;
   margin-top: 5px;
-}
-
-.addPostIcon {
-  font-size: 28px;
-  color: black;
-  cursor: pointer;
 }
