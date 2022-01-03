@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import './LoginForm.css';
 import SignUpFormModal from "../SignupFormPage/index"
-import phoneScreen from "./phoneScreen.png"
 import customLogo from "./customLogo.jpg"
 
 
