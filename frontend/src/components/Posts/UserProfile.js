@@ -5,6 +5,7 @@ import { getPosts } from "../../store/post";
 import "./UserProfile.css";
 import DeletePost from "./DeletePost";
 import EditPostFormModal from "./EditPostIndex";
+import { Link } from "react-router-dom";
 
 
 function UserProfilePage() {
@@ -43,7 +44,9 @@ function UserProfilePage() {
       <div className="user_posts_wrapper">
         {userPosts.map(post =>
           <div key={post.id} className="post_image_wrapper">
-            <img src={post.photo_url} alt="postImage" className="postImageProfilePage" />
+            <Link to={`/posts/${post?.id}`}>
+              <img src={post.photo_url} alt="postImage" className="postImageProfilePage" />
+            </Link>
             {/* <p>{post.description}</p> */}
             <div className="editAndDeleteIcons">
               <EditPostFormModal post={post} />

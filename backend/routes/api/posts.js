@@ -27,6 +27,38 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json(allPosts);
 }));
 
+
+//get a specific post in the database
+router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+  const specificPost = await Post.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+      },
+      {
+        model: Comment,
+        include: [
+          {
+            model: User,
+          },
+        ],
+      },
+      {
+        model: Like,
+      },
+    ]
+  });
+
+  if (specificPost) {
+    return res.json(specificPost)
+  } else {
+    next(new Error("Question not found"));
+  };
+
+}),
+
+);
+
 router.post("/", singleMulterUpload("image"), requireAuth, asyncHandler(async (req, res) => {
   const { description } = req.body;
 

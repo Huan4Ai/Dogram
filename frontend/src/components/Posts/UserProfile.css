@@ -49,9 +49,6 @@
 
 .post_image_wrapper {
   height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .postImageProfilePage {
