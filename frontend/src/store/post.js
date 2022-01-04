@@ -50,6 +50,15 @@ export const getPosts = () => async dispatch => {
   }
 };
 
+export const getSinglePost = (postId) => async dispatch => {
+  const response = await csrfFetch(`/api/posts/${postId}`);
+
+  if (response.ok) {
+    const post = await response.json();
+    dispatch(addPost(post));
+  }
+
+};
 export const createPost = (post) => async (dispatch) => {
   // console.log(post);
   const { user_id, description, image } = post;

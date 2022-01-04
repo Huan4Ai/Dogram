@@ -1,0 +1,17 @@
+.singlePostGridContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  max-width: 933px;
+  justify-self: center;
+  border-radius: 3px;
+  background-color: white;
+  border: 1px solid #d8d8d8d7;
+  margin: 40px auto 0 auto;
+  margin-bottom: 40px;
+}
+
+.left-grid-image {
+  object-fit: cover;
+  max-height: 600px;
+  width: 100%;
+}
