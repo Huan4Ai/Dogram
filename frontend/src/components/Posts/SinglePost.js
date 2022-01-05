@@ -26,13 +26,15 @@ function SinglePost() {
       <div>
         <div className="postOwnerInfo">
           <img src={SinglePost?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
-          <span className="usernameOnPostcard">{SinglePost?.User?.username}</span>
+          <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
+          <p className="postDescriptonOnPostcard">{SinglePost?.description}</p>
         </div>
         <div className="postcardComment">
           {SinglePost?.Comments.map((comment, index) =>
             <div key={index} className="postOwnerInfo">
               <img src={comment?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
-              <span className="usernameOnPostcard">{comment?.User?.username}</span>
+              <p className="usernameOnPostcard">{comment?.User?.username}</p>
+              <p className="postDescriptonOnPostcard">{comment?.content}</p>
             </div>
             )}
 
