@@ -12,8 +12,13 @@
 
 .left-grid-image {
   object-fit: cover;
-  max-height: 600px;
+  height: 500px;
   width: 100%;
+}
+
+.postcardComment {
+  border-top: 1px solid #d8d8d8d7;
+  height: 300px;
 }
 
 .postOwnerInfo {
@@ -38,6 +43,8 @@
   font-size: 10pt;
 }
 
-.postcardComment {
-  border-top: 1px solid #d8d8d8d7;
+.single-like-container {
+  /* border-top: 1px solid #d8d8d8d7; */
+  margin-top: 30px;
+  margin-left: 5px;
 }

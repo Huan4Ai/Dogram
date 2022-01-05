@@ -6,6 +6,7 @@ import "./AllPosts.css"
 import ShowAllComments from "../Comments/AllComments";
 import AddComment from "../Comments/AddComment";
 import LikeAPost from "./LikeofPost";
+import { Link } from "react-router-dom";
 
 
 function ShowAllPosts() {
@@ -34,6 +35,9 @@ function ShowAllPosts() {
             <p id="username">{posts[post]?.User?.username}</p>
             <p>{posts[post].description}</p>
           </div>
+          {/* <Link to={`/posts/${posts[post]?.id}`} className="linkToPostDetail">
+            <span>View post detail</span>
+          </Link> */}
           <div>
             <ShowAllComments post={posts[post]} />
           </div>
