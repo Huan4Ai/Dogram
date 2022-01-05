@@ -11,7 +11,6 @@ function SinglePost() {
   const postId = useParams().postId;
   const SinglePost = useSelector(state => state?.post[postId]);
 
-  console.log(SinglePost?.Comments);
 
   useEffect(() => {
     dispatch(getSinglePost(postId));
@@ -30,12 +29,11 @@ function SinglePost() {
           <span className="usernameOnPostcard">{SinglePost?.User?.username}</span>
         </div>
         <div className="postcardComment">
-          {/* {Object?.keys(SinglePost)?.map(post =>
-            <span>{SinglePost?.[post]?.User?.username}</span>
-          )} */}
-          {/* <p>{SinglePost?.Comments?.[0]?.User?.username}</p> */}
           {SinglePost?.Comments.map((comment, index) =>
-            <p key={index}>{comment?.User?.username}</p>
+            <div key={index} className="postOwnerInfo">
+              <img src={comment?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
+              <span className="usernameOnPostcard">{comment?.User?.username}</span>
+            </div>
             )}
 
         </div>
