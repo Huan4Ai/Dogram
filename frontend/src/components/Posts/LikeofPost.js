@@ -70,7 +70,9 @@ function LikeAPost({ post }) {
       ) : (
         <div className="likeAndCommentIcon">
           <i className="far fa-heart" onClick={addLike}></i>
-          <i className="far fa-comment" id="commentIcon"></i>
+          <Link to={`/posts/${post?.id}`} >
+            <i className="far fa-comment" id="commentIcon"></i>
+          </Link>
         </div>
       )}
       <p className="likeCount">{numOfLikes} {numOfLikes <= 1 ? "like" : "likes"}</p>
