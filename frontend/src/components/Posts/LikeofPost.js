@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
 import { createLike } from "../../store/post";
 import { deleteLike } from "../../store/post";
+import { Link } from "react-router-dom";
 import "./Like.css"
 
 function LikeAPost({ post }) {
@@ -62,7 +63,9 @@ function LikeAPost({ post }) {
       {isLiked() ? (
         <div className="likeAndCommentIcon">
           <i className="fas fa-heart" onClick={removeLike} id="likeIcon-Red"></i>
-          <i className="far fa-comment" id="commentIcon"></i>
+          <Link to={`/posts/${post?.id}`} >
+            <i className="far fa-comment" id="commentIcon"></i>
+          </Link>
         </div>
       ) : (
         <div className="likeAndCommentIcon">

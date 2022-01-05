@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 import { getSinglePost } from "../../store/post";
 import "./SinglePost.css"
 import SinglePostLike from "./SinglePostLike";
+import AddCommentSinglePost from "./AddCommentSingle";
 
 function SinglePost() {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ function SinglePost() {
 
         <div className="single-like-container">
           <SinglePostLike />
+          <AddCommentSinglePost />
         </div>
 
       </div>

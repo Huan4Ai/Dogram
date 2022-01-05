@@ -44,6 +44,7 @@
 }
 
 .single-like-container {
-  border-top: 1px solid #d8d8d8d7;
-  margin-top: 50px;
+  /* border-top: 1px solid #d8d8d8d7; */
+  margin-top: 30px;
+  margin-left: 5px;
 }
