@@ -35,31 +35,31 @@ function SinglePost() {
             <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
             <p className="postDescriptonOnPostcard">{SinglePost?.description}</p>
           </div>
-            {SinglePost?.Comments.map((comment, index) =>
-              <div key={index} className="postOwnerInfo">
-                <img src={comment?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
-                <p className="usernameOnPostcard">{comment?.User?.username}</p>
-                <p className="postDescriptonOnPostcard">{comment?.content}</p>
-              </div>
-            )}
-
-          </div>
-
-          <div className="single-like-container">
-            <SinglePostLike />
-          </div>
+          {SinglePost?.Comments.map((comment, index) =>
+            <div key={index} className="postOwnerInfo">
+              <img src={comment?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
+              <p className="usernameOnPostcard">{comment?.User?.username}</p>
+              <p className="postDescriptonOnPostcard">{comment?.content}</p>
+            </div>
+          )}
 
         </div>
 
+        <div className="single-like-container">
+          <SinglePostLike />
+        </div>
 
       </div>
 
-      )
+
+    </div>
+
+  )
 
 
 
 }
 
-      export default SinglePost;
+export default SinglePost;
 
 //SinglePost?.Comments.map()

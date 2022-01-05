@@ -18,7 +18,6 @@
 
 .postcardComment {
   border-top: 1px solid #d8d8d8d7;
-  border-bottom: 1px solid #d8d8d8d7;
   height: 300px;
 }
 
@@ -45,5 +44,6 @@
 }
 
 .single-like-container {
-
+  border-top: 1px solid #d8d8d8d7;
+  margin-top: 50px;
 }
