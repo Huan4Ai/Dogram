@@ -16,6 +16,16 @@
   width: 100%;
 }
 
+.right-Post-Part {
+  /* position: relative; */
+}
+
+.single-like-container {
+  position: absolute;
+    bottom: 0;
+  left: 0;
+}
+
 .postOwnerInfo {
   display: flex;
   align-items: center;

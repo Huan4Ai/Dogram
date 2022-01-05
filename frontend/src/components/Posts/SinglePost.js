@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getSinglePost } from "../../store/post";
 import "./SinglePost.css"
+import SinglePostLike from "./SinglePostLike";
 
 function SinglePost() {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function SinglePost() {
       <img src={SinglePost?.photo_url} alt="postImage" className="left-grid-image" />
       {/* </div> */}
 
-      <div>
+      <div className="right-Post-Part">
         <div className="postOwnerInfo">
           <img src={SinglePost?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
           <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
@@ -36,9 +37,14 @@ function SinglePost() {
               <p className="usernameOnPostcard">{comment?.User?.username}</p>
               <p className="postDescriptonOnPostcard">{comment?.content}</p>
             </div>
-            )}
+          )}
 
         </div>
+
+        <div className="single-like-container">
+          <SinglePostLike />
+        </div>
+
       </div>
 
 

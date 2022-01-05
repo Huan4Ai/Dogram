@@ -3,13 +3,18 @@
   margin-top: 5px;
 }
 
-.likeIcon {
+.likeAndCommentIcon {
   font-size: 22px;
+  cursor: pointer;
 }
 
-.likeIcon-Red {
+#likeIcon-Red {
   font-size: 22px;
   color: red;
+}
+
+#commentIcon {
+  margin-left: 5px;
 }
 
 .likeCount {

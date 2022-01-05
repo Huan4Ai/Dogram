@@ -1,19 +1,19 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getPosts } from "../../store/post";
+import { useParams } from "react-router-dom";
+import { getSinglePost } from "../../store/post";
 import { createLike } from "../../store/post";
 import { deleteLike } from "../../store/post";
-import "./Like.css"
 
-function LikeAPost({ post }) {
+function SinglePostLike() {
 
   const dispatch = useDispatch();
 
   const user = useSelector(state => state.session.user);
   const userId = user.id;
-
-  // let numOfLikes = post?.Likes?.length
+  const postId = useParams().postId;
+  const post = useSelector(state => state?.post[postId]);
 
   const [numOfLikes, setNumOfLikes] = useState(0);
 
@@ -22,7 +22,7 @@ function LikeAPost({ post }) {
   }, [post, dispatch]);
 
   const isLiked = () => {
-    let likes = post.Likes;
+    let likes = post?.Likes;
 
     if (likes) {
       for (let i = 0; i < likes.length; i++) {
@@ -43,7 +43,7 @@ function LikeAPost({ post }) {
 
     await dispatch(createLike(data, post.id));
     setNumOfLikes(numOfLikes + 1);
-    await dispatch(getPosts());
+    await dispatch(getSinglePost(postId));
 
   }
 
@@ -53,7 +53,7 @@ function LikeAPost({ post }) {
     if (booleanResult) {
       setNumOfLikes(numOfLikes - 1);
     }
-    await dispatch(getPosts());
+    await dispatch(getSinglePost(postId));
   };
 
   return (
@@ -72,9 +72,10 @@ function LikeAPost({ post }) {
       )}
       <p className="likeCount">{numOfLikes} {numOfLikes <= 1 ? "like" : "likes"}</p>
     </div>
+
   )
 
 
 }
 
-export default LikeAPost;
+export default SinglePostLike
