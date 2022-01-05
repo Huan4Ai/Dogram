@@ -6,6 +6,7 @@ import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import ShowAllPosts from './components/Posts/ShowAllPosts';
 import UserProfilePage from './components/Posts/UserProfile';
+import SinglePost from './components/Posts/SinglePost';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,19 +21,22 @@ function App() {
     <>
       {isLoaded && (
         <div>
-        {session && <Navigation isLoaded={isLoaded} />}
-        <Switch>
-          <Route path="/" exact>
-            {session? <ShowAllPosts /> : <LoginFormPage />}
-          </Route>
-          {/* <Route path="/new-post" exact>
+          {session && <Navigation isLoaded={isLoaded} />}
+          <Switch>
+            <Route path="/" exact>
+              {session ? <ShowAllPosts /> : <LoginFormPage />}
+            </Route>
+            {/* <Route path="/new-post" exact>
             {session? <CreatePost /> : null }
           </Route> */}
-          <Route path="/my-profile" exact>
-              {session ? <UserProfilePage /> : <LoginFormPage /> }
-          </Route>
+            <Route path="/my-profile" exact>
+              {session ? <UserProfilePage /> : <LoginFormPage />}
+            </Route>
+            <Route path="/posts/:postId" exact>
+              {session ? <SinglePost /> : <LoginFormPage />}
+            </Route>
 
-        </Switch>
+          </Switch>
 
         </div>
       )}
