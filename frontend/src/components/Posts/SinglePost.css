@@ -16,6 +16,12 @@
   width: 100%;
 }
 
+.editAndDeleteIcons {
+  display: flex;
+  position: relative;
+  left: 118px;
+}
+
 .postcardComment {
   border-top: 1px solid #d8d8d8d7;
   height: 300px;
@@ -23,6 +29,7 @@
 
 .postOwnerInfo {
   display: flex;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 5px;
   margin: 5px;

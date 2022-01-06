@@ -30,13 +30,15 @@ function SinglePost() {
 
       <div className="right-Post-Part">
         <div className="postOwnerInfo">
-          <img src={SinglePost?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
-          <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
+          <>
+            <img src={SinglePost?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
+            <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
+          </>
           {SinglePost?.User?.id === currentUserId &&
-            <>
+            <div className="editAndDeleteIcons">
               <EditPostFormModal post={SinglePost} />
               <DeletePost post={SinglePost} />
-            </>
+            </div>
           }
         </div>
         <div className="postcardComment">
