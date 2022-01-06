@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatePost } from "../../store/post";
+import { useEffect } from "react";
+import { getSinglePost } from "../../store/post";
 import "./EditPost.css"
 
 function EditPost({ post, onClose }) {
@@ -23,7 +25,7 @@ function EditPost({ post, onClose }) {
       description,
       photo_url
     };
-    console.log(data)
+
     let editedPost = await dispatch(updatePost(data));
 
     if (editedPost) {
@@ -32,6 +34,10 @@ function EditPost({ post, onClose }) {
     }
 
   };
+
+  useEffect(() => {
+    dispatch(getSinglePost(post?.id))
+  }, [dispatch, post]);
 
 
 

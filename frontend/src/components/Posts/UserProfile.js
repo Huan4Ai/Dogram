@@ -47,13 +47,8 @@ function UserProfilePage() {
             <Link to={`/posts/${post?.id}`}>
               <img src={post.photo_url} alt="postImage" className="postImageProfilePage" />
             </Link>
-            {/* <p>{post.description}</p> */}
-            <div className="editAndDeleteIcons">
-              <EditPostFormModal post={post} />
-              <DeletePost post={post} />
-            </div>
           </div>
-          )}
+        )}
       </div>
     </div>
   )

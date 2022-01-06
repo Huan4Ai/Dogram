@@ -7,11 +7,14 @@ import { getSinglePost } from "../../store/post";
 import "./SinglePost.css"
 import SinglePostLike from "./SinglePostLike";
 import AddCommentSinglePost from "./AddCommentSingle";
+import EditPostFormModal from "./EditPostIndex";
+import DeletePost from "./DeletePost";
 
 function SinglePost() {
   const dispatch = useDispatch();
   const postId = useParams().postId;
   const SinglePost = useSelector(state => state?.post[postId]);
+  const currentUserId = useSelector(state => state?.session?.user?.id);
 
 
   useEffect(() => {
@@ -29,6 +32,12 @@ function SinglePost() {
         <div className="postOwnerInfo">
           <img src={SinglePost?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
           <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
+          {SinglePost?.User?.id === currentUserId &&
+            <>
+              <EditPostFormModal post={SinglePost} />
+              <DeletePost post={SinglePost} />
+            </>
+          }
         </div>
         <div className="postcardComment">
           <div className="postOwnerInfo">
@@ -36,7 +45,7 @@ function SinglePost() {
             <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
             <p className="postDescriptonOnPostcard">{SinglePost?.description}</p>
           </div>
-          {SinglePost?.Comments.map((comment, index) =>
+          {SinglePost?.Comments?.map((comment, index) =>
             <div key={index} className="postOwnerInfo">
               <img src={comment?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
               <p className="usernameOnPostcard">{comment?.User?.username}</p>

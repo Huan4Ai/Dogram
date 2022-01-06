@@ -1,37 +1,32 @@
 import React from "react";
 import { deletePost } from "../../store/post";
-import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function DeletePost({ post }) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const postId = post.id;
+  const history = useHistory();
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    let deletedPost = await dispatch(deletePost(postId));
-
-    if (deletedPost) {
-      history.push("/");
-    }
-
-
+    dispatch(deletePost(postId));
+    history.push("/my-profile");
   }
 
 
 
-  if (post !== null || post !== undefined) {
-    return (
-      <div>
-        <i className="far fa-trash-alt" onClick={handleDelete}></i>
-      </div>
+
+  return (
+    <div>
+      <i className="far fa-trash-alt" onClick={handleDelete}></i>
+    </div>
 
 
-    );
-  }
+  );
 
-  return null
+
+
 
 }
 
