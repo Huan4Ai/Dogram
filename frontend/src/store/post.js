@@ -59,6 +59,7 @@ export const getSinglePost = (postId) => async dispatch => {
   }
 
 };
+
 export const createPost = (post) => async (dispatch) => {
   // console.log(post);
   const { user_id, description, image } = post;
