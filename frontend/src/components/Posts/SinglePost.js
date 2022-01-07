@@ -9,6 +9,7 @@ import SinglePostLike from "./SinglePostLike";
 import AddCommentSinglePost from "./AddCommentSingle";
 import EditPostFormModal from "./EditPostIndex";
 import DeletePost from "./DeletePost";
+import { Link } from "react-router-dom";
 
 function SinglePost() {
   const dispatch = useDispatch();
@@ -32,7 +33,9 @@ function SinglePost() {
         <div className="postOwnerInfo">
           <>
             <img src={SinglePost?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
-            <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
+            <Link className="usernameOnPostcard" to={`/users/${SinglePost?.User?.id}`}>
+              <p>{SinglePost?.User?.username}</p>
+            </Link>
           </>
           {SinglePost?.User?.id === currentUserId &&
             <div className="editAndDeleteIcons">
@@ -44,13 +47,17 @@ function SinglePost() {
         <div className="postcardComment">
           <div className="postOwnerInfo">
             <img src={SinglePost?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
-            <p className="usernameOnPostcard">{SinglePost?.User?.username}</p>
+            <Link className="usernameOnPostcard" to={`/users/${SinglePost?.User?.id}`}>
+              <p>{SinglePost?.User?.username}</p>
+            </Link>
             <p className="postDescriptonOnPostcard">{SinglePost?.description}</p>
           </div>
           {SinglePost?.Comments?.map((comment, index) =>
             <div key={index} className="postOwnerInfo">
               <img src={comment?.User?.profilePicture} alt="profilePicture" className="profilePictureOnPostcard" />
-              <p className="usernameOnPostcard">{comment?.User?.username}</p>
+              <Link className="usernameOnPostcard" to={`/users/${comment?.User?.id}`}>
+                <p>{comment?.User?.username}</p>
+              </Link>
               <p className="postDescriptonOnPostcard">{comment?.content}</p>
             </div>
           )}
