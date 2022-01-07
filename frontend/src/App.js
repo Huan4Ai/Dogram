@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import ShowAllPosts from './components/Posts/ShowAllPosts';
 import UserProfilePage from './components/Posts/UserProfile';
 import SinglePost from './components/Posts/SinglePost';
+import SingleUserProfile from './components/UserProfile/profilePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,16 +27,15 @@ function App() {
             <Route path="/" exact>
               {session ? <ShowAllPosts /> : <LoginFormPage />}
             </Route>
-            {/* <Route path="/new-post" exact>
-            {session? <CreatePost /> : null }
-          </Route> */}
             <Route path="/my-profile" exact>
               {session ? <UserProfilePage /> : <LoginFormPage />}
             </Route>
             <Route path="/posts/:postId" exact>
               {session ? <SinglePost /> : <LoginFormPage />}
             </Route>
-
+            <Route path="/users/:userId" exact>
+              {session ? <SingleUserProfile /> : <LoginFormPage />}
+            </Route>
           </Switch>
 
         </div>

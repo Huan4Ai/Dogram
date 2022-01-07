@@ -2,9 +2,9 @@ import { csrfFetch } from "./csrf";
 
 const GET_SINGLE_USER = "users/LOAD_USER";
 
-const loadSingleUser = (users) => ({
+const loadSingleUser = (user) => ({
   type: GET_SINGLE_USER,
-  users
+  user
 });
 
 export const getSingleUser = (userId) => async dispatch => {
@@ -21,12 +21,7 @@ const userReducer = (state = {}, action) => {
   switch (action.type) {
 
     case GET_SINGLE_USER:
-      let newState = { ...state };
-      action.users.forEach(user => {
-        newState[user.id] = user
-      });
-      return newState;
-
+      return { ...state, ...action.user };
 
     default:
       return state

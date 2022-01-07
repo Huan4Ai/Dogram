@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { getSinglePost } from "../../store/post";
 import "./SinglePost.css"
 import SinglePostLike from "./SinglePostLike";

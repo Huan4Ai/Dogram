@@ -3,8 +3,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from "../../store/post";
 import "./UserProfile.css";
-import DeletePost from "./DeletePost";
-import EditPostFormModal from "./EditPostIndex";
 import { Link } from "react-router-dom";
 
 
