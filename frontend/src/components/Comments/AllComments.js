@@ -5,6 +5,8 @@ import { getComments } from "../../store/comment";
 import "./AllComments.css"
 import DeleteComment from "./DeleteComment";
 import EditCommentFormModal from "./EditIndex";
+import { Link } from "react-router-dom";
+
 
 
 function ShowAllComments({ post }) {
@@ -27,7 +29,11 @@ function ShowAllComments({ post }) {
       {Object?.keys(commentsOfSinglePost)?.map((comment, index) =>
         <div key={index} className="usernameAndComment">
           <div>
-            <span id="username">{commentsOfSinglePost[comment]?.User?.username}</span>
+            <span>
+              <Link id="username" to={`/users/${commentsOfSinglePost[comment]?.User?.id}`}>
+                {commentsOfSinglePost[comment]?.User?.username}
+              </Link>
+            </span>
             <span>{commentsOfSinglePost[comment]?.content}</span>
           </div>
           <div>
