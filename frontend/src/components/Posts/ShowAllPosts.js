@@ -27,12 +27,20 @@ function ShowAllPosts() {
         <div key={index} className="singlePostContainer">
           <div className="userInfoOnPost">
             <img src={posts[post]?.User?.profilePicture} alt="profilePicture" className="profilePicture" />
-            <span className="userName">{posts[post]?.User?.username}</span>
+            <span>
+              <Link to={`/users/${posts[post]?.User?.id}`} className="userName">
+                {posts[post]?.User?.username}
+              </Link>
+            </span>
           </div>
           <img src={posts[post].photo_url} alt="postImage" className="AllPostImages" />
           <LikeAPost post={posts[post]} />
           <div className="usernameAndDescription">
-            <p id="username">{posts[post]?.User?.username}</p>
+            <p>
+              <Link to={`/users/${posts[post]?.User?.id}`} id="username">
+                {posts[post]?.User?.username}
+              </Link>
+            </p>
             <p>{posts[post].description}</p>
           </div>
           {/* <Link to={`/posts/${posts[post]?.id}`} className="linkToPostDetail">
