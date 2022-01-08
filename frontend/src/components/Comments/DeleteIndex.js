@@ -9,6 +9,8 @@ function DeleteCommentModal({singleComment}) {
 
   const [showModal, setShowModal] = useState(false);
 
+  console.log(singleComment)
+
   const modelUserId = singleComment?.user_id;
   const currentUserId = useSelector(state => state.session.user.id);
 

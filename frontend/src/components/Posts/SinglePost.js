@@ -8,7 +8,7 @@ import "./SinglePost.css"
 import SinglePostLike from "./SinglePostLike";
 import AddCommentSinglePost from "./AddCommentSingle";
 import EditPostFormModal from "./EditPostIndex";
-import DeletePost from "./DeletePost";
+import DeletePostModal from "./DeleteIndex";
 import { Link } from "react-router-dom";
 
 function SinglePost() {
@@ -40,7 +40,7 @@ function SinglePost() {
           {SinglePost?.User?.id === currentUserId &&
             <div className="editAndDeleteIcons">
               <EditPostFormModal post={SinglePost} />
-              <DeletePost post={SinglePost} />
+              <DeletePostModal post={SinglePost} />
             </div>
           }
         </div>

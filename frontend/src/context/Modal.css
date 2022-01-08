@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* transition: all 0.3s ease-in-out; */
 }
 
 #modal-background {
@@ -22,6 +21,5 @@
 #modal-content {
   position: absolute;
   background-color:white;
-  /* transform: translateY(-0.5);
-  transition: all 0.3s ease-in-out; */
+  border-radius: 12px;
 }

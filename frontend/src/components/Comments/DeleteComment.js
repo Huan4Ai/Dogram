@@ -11,7 +11,8 @@ function DeleteComment({ singleComment, onClose }) {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    dispatch(deleteComment(singleComment?.id))
+    dispatch(deleteComment(singleComment?.id));
+    onClose();
   }
 
   const handleCancelClick = (e) => {
