@@ -1,18 +1,22 @@
 .navBar {
   display: flex;
-  justify-content:space-around;
+  justify-content:space-between;
   align-items: center;
-  padding: 1px;
+  /* padding: 1px; */
   background-color: white;
   width: 100%;
   position: sticky;
   top: 0;
-  box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5); */
+  border-bottom: 1px solid #d8d8d8d7;
+}
+
+.left_logo {
+  margin: 0 100px;
 }
 
 .left_logoImage {
   width: 70px;
-  margin-right: 80px;
 }
 
 /* .mid_search {
@@ -32,14 +36,14 @@
 .right_header{
   display: flex;
   align-items: center;
-  margin-left: 80px;
+  margin: 0 100px;
 }
 
 .userProfile {
   font-size: 25px;
   color: black;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .logoutButton {
