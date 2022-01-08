@@ -6,6 +6,7 @@ import "./AllComments.css"
 import DeleteComment from "./DeleteComment";
 import EditCommentFormModal from "./EditIndex";
 import { Link } from "react-router-dom";
+import DeleteCommentModal from "./DeleteIndex";
 
 
 
@@ -38,7 +39,7 @@ function ShowAllComments({ post }) {
           </div>
           <div>
             <EditCommentFormModal singleComment={commentsOfSinglePost[comment]} />
-            <DeleteComment singleComment={commentsOfSinglePost[comment]} />
+            <DeleteCommentModal singleComment={commentsOfSinglePost[comment]} />
           </div>
         </div>
 

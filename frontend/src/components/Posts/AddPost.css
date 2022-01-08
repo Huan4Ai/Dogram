@@ -52,6 +52,7 @@
 #captionInput {
   border-radius: 3px;
   padding: 10px;
+  height: 70px;
   border: 1px solid #d3d3d3;
   font-size: 14px;
   margin-bottom: 24px;

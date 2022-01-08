@@ -27,18 +27,15 @@ function UserProfilePage() {
   return (
     <div className="myProfilePageWrapper">
       <div className="profile-header">
-        <div>
-          <img src={user.profilePicture} className="profileP" alt="userProfile" />
-        </div>
+        <img src={user.profilePicture} className="profileP" alt="userProfile" />
         <div className="profileRight">
-          <div className="user-info">
-            <h2>{username}</h2>
-          </div>
-          <div className="about">
-            <p>{user.about}</p>
-          </div>
+          <h2 className="user-info">{username}</h2>
+          <p className="about">{user.about}</p>
         </div>
       </div>
+      {/* <div>
+        <p>haha</p>
+      </div> */}
       <div className="user_posts_wrapper">
         {userPosts.map(post =>
           <div key={post.id} className="post_image_wrapper">
