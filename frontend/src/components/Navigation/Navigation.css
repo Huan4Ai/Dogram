@@ -1,6 +1,6 @@
 .navBar {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   /* padding: 1px; */
   background-color: white;
@@ -12,7 +12,7 @@
 }
 
 .left_logo {
-  margin: 0 100px;
+  margin: 0 6rem;
 }
 
 .left_logoImage {
@@ -33,17 +33,34 @@
   background-color: transparent;
 } */
 
-.right_header{
+.right_header {
   display: flex;
   align-items: center;
-  margin: 0 100px;
+  margin: 0 6rem;
+}
+
+@media screen and (max-width: 500px) {
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+    /* flex-basis: 33%; */
+    flex-wrap: wrap;
+  }
+  .left_logo {
+    margin: 0;
+  }
+  .right_header {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
 }
 
 .userProfile {
   font-size: 25px;
   color: black;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .logoutButton {

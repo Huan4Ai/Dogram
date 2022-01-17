@@ -1,7 +1,7 @@
 .myProfilePageWrapper {
   margin: 0 auto;
   display: flex;
-  width: 70%;
+  max-width: 80%;
   flex-direction: column;
 
 }
