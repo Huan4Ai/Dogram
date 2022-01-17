@@ -45,6 +45,7 @@
     justify-content: space-between;
     /* flex-basis: 33%; */
     flex-wrap: wrap;
+    width: 100%;
   }
   .left_logo {
     margin: 0;
