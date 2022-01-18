@@ -13,15 +13,6 @@
 
 }
 
-/* .login-and-signup {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  height: 100vh;
-  width: 100vw;
-} */
-
 .right-login {
   display: flex;
   flex-direction: column;
@@ -29,11 +20,13 @@
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  max-width: 250px;
+  width: 250px;
   height: 100vh;
   animation: right-to-left 2s ease-in-out backwards;
   animation-delay: 2s;
 }
+
+
 
 @keyframes right-to-left {
   0% {
@@ -45,9 +38,6 @@
   }
 
 }
-
-
-
 
 .login_form {
   display: flex;
@@ -102,13 +92,13 @@
   justify-content: center;
   background-color: white;
   width: 100%;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .footer {
   display: flex;
   justify-content: space-around;
-  padding: 30px;
+  /* padding: 30px; */
   width: 100%;
 }
 
@@ -118,4 +108,10 @@
 
 #linkedinIcon {
   color: black;
+}
+
+@media screen and (max-width: 500px) {
+  .right-login {
+    width: 100%;
+  }
 }
