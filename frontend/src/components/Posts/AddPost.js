@@ -11,10 +11,12 @@ const CreatePost = ({ onClose }) => {
 
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
   const reset = () => {
     setDescription("");
     setImage(null);
+    setImagePreview(null);
   }
 
   const handleSubmit = async (e) => {
@@ -24,7 +26,7 @@ const CreatePost = ({ onClose }) => {
       description,
       image
     };
-    let createdPost = await dispatch(createPost(data));
+    dispatch(createPost(data));
     onClose();
     reset();
     history.push("/");
@@ -33,7 +35,10 @@ const CreatePost = ({ onClose }) => {
 
   const updateFile = (e) => {
     const file = e.target.files[0];
-    if (file) setImage(file);
+    if (file) {
+      setImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
   }
 
   return (
@@ -64,10 +69,24 @@ const CreatePost = ({ onClose }) => {
           ></path>
         </svg>
         <p className="uploadSentence">Upload photos here</p>
-        <label id="addPostLabel">
-          Select from computer
-          <input type="file" onChange={updateFile} id="new-pic" accept="image/*" required />
-        </label>
+        <div>
+          {imagePreview &&
+            <img
+              style={{ width: "100px", height: "100px" }}
+              src={imagePreview}
+              alt=""
+            ></img>}
+        </div>
+        <div className="addAndConfirm">
+          <label id="addPostLabel">
+            Select from computer
+            <input type="file" onChange={updateFile} id="new-pic" accept="image/*" required />
+          </label>
+          <div className="tickContainer">
+            {image && <i className="far fa-check-circle tick" />}
+          </div>
+        </div>
+
         <textarea type="text" placeholder="Caption" value={description} onChange={(e) => setDescription(e.target.value)} id="captionInput" required />
         <button type="submit" id="addPostButton">Post</button>
       </form>
