@@ -63,7 +63,7 @@ router.get(
 );
 
 //search
-router.put("/search", asyncHandler(async (req, res) => {
+router.put("/search", requireAuth, asyncHandler(async (req, res) => {
   const { result } = req.body;
 
   const users = await User.findAll({
