@@ -63,19 +63,19 @@ router.get(
 );
 
 //search
-router.put("/search", requireAuth, asyncHandler(async (req, res) => {
-  const { result } = req.body;
+router.put("/search", asyncHandler(async (req, res) => {
+  const { data } = req.body;
 
   const users = await User.findAll({
     where: {
       username: {
-        [Op.iLike]: `%${result}%`,
+        [Op.iLike]: `%${data}%`,
       },
     },
 
   });
 
-  res.json(users);
+  return res.json(users);
 
 
 })
