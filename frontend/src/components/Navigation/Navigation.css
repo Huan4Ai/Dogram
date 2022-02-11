@@ -19,19 +19,19 @@
   width: 70px;
 }
 
-/* .mid_search {
+.mid_search {
   display: flex;
   align-items: center;
   border: 1px solid lightgray;
   padding: 5px;
   border-radius: 5px;
-} */
+}
 
-/* .center_inputField {
+.center_inputField {
   border: none;
   outline: none;
   background-color: transparent;
-} */
+}
 
 .right_header {
   display: flex;
