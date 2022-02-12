@@ -10,6 +10,7 @@ import { searchUsers } from '../../store/search';
 function Navigation({ isLoaded }) {
 
   const [input, setInput] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
 
   const dispatch = useDispatch();
   const searchResults = useSelector((state) => state.searchReducer);
@@ -18,6 +19,14 @@ function Navigation({ isLoaded }) {
   useEffect(() => {
     if (input.length > 0) {
       dispatch(searchUsers(input));
+    }
+  }, [dispatch, input]);
+
+  useEffect(() => {
+    if (input) {
+      setShowSearch(true)
+    } else {
+      setShowSearch(false)
     }
   }, [dispatch, input]);
 
@@ -39,6 +48,7 @@ function Navigation({ isLoaded }) {
       <div className="mid_search">
         <i className="fas fa-search" />
         <input type="text" placeholder="Search" className="center_inputField" value={input} onChange={(e) => setInput(e.target.value)} />
+        {showSearch && <p>test</p>}
       </div>
 
       <div className="right_header">
