@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../store/comment";
 import "./AllComments.css"
-import DeleteComment from "./DeleteComment";
 import EditCommentFormModal from "./EditIndex";
 import { Link } from "react-router-dom";
 import DeleteCommentModal from "./DeleteIndex";

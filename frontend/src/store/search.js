@@ -23,19 +23,18 @@ export const searchUsers = (data) => async (dispatch) => {
 
 };
 
-const searchReducer = (state = {}, action) => {
+const initialState = {};
+const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_USERS:
-      return { ...state, ...action.users };
-
-
+        const allUsers = {};
+        action.users.forEach((user) => {
+            allUsers[user.id] = user;
+        });
+    return {...allUsers}
     default:
-      return state
+      return state;
   }
-
-
-
-
-}
+};
 
 export default searchReducer

@@ -4,7 +4,7 @@ import './Navigation.css';
 import logo from "./customLogo.jpg"
 import CreatePostFormModal from '../Posts/AddIndex';
 import * as sessionActions from "../../store/session";
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { searchUsers } from '../../store/search';
 
 function Navigation({ isLoaded }) {
@@ -12,6 +12,8 @@ function Navigation({ isLoaded }) {
   const [input, setInput] = useState("");
 
   const dispatch = useDispatch();
+  const searchResults = useSelector((state) => state.searchReducer);
+  const results = Object.values(searchResults);
 
   useEffect(() => {
     if (input.length > 0) {
