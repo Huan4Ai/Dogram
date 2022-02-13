@@ -33,6 +33,23 @@
   background-color: transparent;
 }
 
+.search-result-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-singleUser {
+  display: flex;
+  align-items: center;
+}
+
+.search-profile-picture {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .right_header {
   display: flex;
   align-items: center;

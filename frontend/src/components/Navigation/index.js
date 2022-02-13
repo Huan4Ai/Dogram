@@ -51,11 +51,14 @@ function Navigation({ isLoaded }) {
         <i className="fas fa-search" />
         <input type="text" placeholder="Search" className="center_inputField" value={input} onChange={(e) => setInput(e.target.value)} />
         {showSearch &&
-          Object.values(results).map((res) =>
-            <div className='search-result-container' key={res.id}>
-              <span>{res.username}</span>
-            </div>
-          )
+          <div className='search-result-container'>
+            {Object.values(results).map((res) =>
+              <div className='search-singleUser' key={res.id}>
+                <img alt="" src={res.profilePicture} className="search-profile-picture"></img>
+                <span className='search-username'>{res.username}</span>
+              </div>
+            )}
+          </div>
         }
       </div>
 
