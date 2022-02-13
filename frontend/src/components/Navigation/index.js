@@ -16,6 +16,8 @@ function Navigation({ isLoaded }) {
   const searchResults = useSelector((state) => state.searchReducer);
   const results = Object.values(searchResults);
 
+  console.log(results)
+
   useEffect(() => {
     if (input.length > 0) {
       dispatch(searchUsers(input));
@@ -48,7 +50,13 @@ function Navigation({ isLoaded }) {
       <div className="mid_search">
         <i className="fas fa-search" />
         <input type="text" placeholder="Search" className="center_inputField" value={input} onChange={(e) => setInput(e.target.value)} />
-        {showSearch && <p>test</p>}
+        {showSearch &&
+          Object.values(results).map((res) =>
+            <div className='search-result-container' key={res.id}>
+              <span>{res.username}</span>
+            </div>
+          )
+        }
       </div>
 
       <div className="right_header">
