@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Navigation.css';
 import logo from "./customLogo.jpg"
 import CreatePostFormModal from '../Posts/AddIndex';
@@ -32,6 +32,10 @@ function Navigation({ isLoaded }) {
     }
   }, [dispatch, input]);
 
+  const reset = () => {
+    setInput("");
+  }
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
@@ -53,9 +57,11 @@ function Navigation({ isLoaded }) {
         {showSearch &&
           <div className='search-result-container'>
             {Object.values(results).map((res) =>
-              <div className='search-singleUser' key={res.id}>
-                <img alt="" src={res.profilePicture} className="search-profile-picture"></img>
-                <span className='search-username'>{res.username}</span>
+              <div key={res.id}>
+                <Link to={`/users/${res.id}`} onClick={reset} className='search-singleUser'>
+                  <img alt="" src={res.profilePicture} className="search-profile-picture"></img>
+                  <span className='search-username'>{res.username}</span>
+                </Link>
               </div>
             )}
           </div>

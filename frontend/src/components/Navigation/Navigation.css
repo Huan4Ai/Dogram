@@ -41,6 +41,7 @@
 .search-singleUser {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .search-profile-picture {
