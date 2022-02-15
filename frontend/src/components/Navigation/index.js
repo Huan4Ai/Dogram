@@ -16,8 +16,6 @@ function Navigation({ isLoaded }) {
   const searchResults = useSelector((state) => state.searchReducer);
   const results = Object.values(searchResults);
 
-  console.log(results)
-
   useEffect(() => {
     if (input.length > 0) {
       dispatch(searchUsers(input));
@@ -28,8 +26,9 @@ function Navigation({ isLoaded }) {
     if (input) {
       setShowSearch(true)
     } else {
-      setShowSearch(false)
-    }
+      setShowSearch(false);
+    };
+    document.addEventListener('click', () => setShowSearch(false));
   }, [dispatch, input]);
 
   const reset = () => {

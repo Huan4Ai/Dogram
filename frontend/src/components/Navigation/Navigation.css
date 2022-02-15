@@ -38,10 +38,10 @@
   flex-direction: column;
   position: absolute;
   background-color: white;
-  width: 15.5%;
+  width: 195px;
   height: auto;
   /* margin-top: 20%; */
-  top: 70%;
+  top: 55px;
   left: 39.7%;
   border-radius: 0 0 3px 3px;
   box-shadow: 0 0 30px 1px rgb(0 0 0 / 10%);
@@ -53,7 +53,7 @@
   text-decoration: none;
   margin-bottom: 5%;
   margin-left: 2.5%;
-  margin-top: 2.5%;
+  margin-top: 5%;
 }
 
 .search-profile-picture {
