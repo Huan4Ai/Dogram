@@ -5,6 +5,8 @@ const asyncHandler = require("express-async-handler");
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { User, Post } = require("../../db/models");
+const { Op } = require("sequelize");
+
 
 const router = express.Router();
 
@@ -62,10 +64,18 @@ router.get(
 
 //search
 router.put("/search", asyncHandler(async (req, res) => {
+  const { data } = req.body;
 
+  const users = await User.findAll({
+    where: {
+      username: {
+        [Op.iLike]: `%${data}%`,
+      },
+    },
 
+  });
 
-
+  return res.json(users);
 
 
 })

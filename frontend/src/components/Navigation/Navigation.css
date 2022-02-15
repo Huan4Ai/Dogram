@@ -19,19 +19,55 @@
   width: 70px;
 }
 
-/* .mid_search {
+.mid_search {
   display: flex;
   align-items: center;
   border: 1px solid lightgray;
   padding: 5px;
   border-radius: 5px;
-} */
+}
 
-/* .center_inputField {
+.center_inputField {
   border: none;
   outline: none;
   background-color: transparent;
-} */
+}
+
+.search-result-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  width: 195px;
+  height: auto;
+  /* margin-top: 20%; */
+  top: 55px;
+  /* left: 39.7%; */
+  margin-left: -6px;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 0 30px 1px rgb(0 0 0 / 10%);
+}
+
+.search-singleUser {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 5%;
+  margin-left: 2.5%;
+  margin-top: 5%;
+}
+
+.search-profile-picture {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.search-username {
+  color: #262626;
+  margin-left: 3%;
+}
 
 .right_header {
   display: flex;
@@ -54,6 +90,12 @@
     display: flex;
     align-items: center;
     margin: 0;
+  }
+  .mid_search {
+    display: none;
+  }
+  .center_inputField {
+    display: none;
   }
 }
 

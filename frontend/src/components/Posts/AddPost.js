@@ -47,7 +47,7 @@ const CreatePost = ({ onClose }) => {
       <form onSubmit={handleSubmit} className="createPostForm">
         <svg
           aria-label="Icon to represent media such as images or videos"
-          class="_8-yf5 "
+          className="_8-yf5 "
           color="	#555"
           fill="#0095f6"
           height="77"
