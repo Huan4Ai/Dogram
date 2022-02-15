@@ -41,7 +41,7 @@
   width: 15.5%;
   height: auto;
   /* margin-top: 20%; */
-  top: 56px;
+  top: 70%;
   left: 39.7%;
   border-radius: 0 0 3px 3px;
   box-shadow: 0 0 30px 1px rgb(0 0 0 / 10%);
@@ -89,6 +89,12 @@
     display: flex;
     align-items: center;
     margin: 0;
+  }
+  .mid_search {
+    display: none;
+  }
+  .center_inputField {
+    display: none;
   }
 }
 
