@@ -10,19 +10,8 @@ const routes = require("./routes");
 const { environment } = require("./config");
 const isProduction = environment === "production";
 
-var log4js = require("log4js");
-log4js.configure({
-  appenders: { cheese: { type: "file", filename: "cheese.log" } },
-  categories: { default: { appenders: ["cheese"], level: "error" } },
-});
 
-const logger = log4js.getLogger("cheese");
-logger.trace("Entering cheese testing");
-logger.debug("Got cheese.");
-logger.info("Cheese is Comté.");
-logger.warn("A warning has occurred!");
-logger.error("An error has occurred!");
-logger.fatal("A fatal action has occurred");
+const logger = require('./utils/loggerMiddleware');
 
 const app = express();
 
@@ -31,6 +20,7 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 
 // Security Middleware
 if (!isProduction) {
@@ -85,5 +75,7 @@ app.use((err, _req, res, _next) => {
     stack: isProduction ? null : err.stack,
   });
 });
+
+app.use(logger());
 
 module.exports = app;
