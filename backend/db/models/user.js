@@ -42,6 +42,8 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Post, { foreignKey: "user_id", onDelete: 'CASCADE', hooks: true })
       this.hasMany(models.Comment, { foreignKey: "user_id", onDelete: 'CASCADE', hooks: true })
       this.hasMany(models.Like, { foreignKey: "user_id", onDelete: 'CASCADE', hooks: true })
+      this.hasMany(models.Follow, { foreignKey: "followerId", as: "followers" })
+      this.hasMany(models.Follow, {foreignKey: "followingId", as: "following" })
     }
   };
   User.init(
