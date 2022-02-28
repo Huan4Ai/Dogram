@@ -7,32 +7,28 @@ const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { User, Post } = require("../../db/models");
 const { Op } = require("sequelize");
 
-
 const router = express.Router();
 
 const validateSignup = [
-  check('email')
+  check("email")
     .exists({ checkFalsy: true })
     .isEmail()
-    .withMessage('Please provide a valid email.'),
-  check('username')
+    .withMessage("Please provide a valid email."),
+  check("username")
     .exists({ checkFalsy: true })
     .isLength({ min: 4 })
-    .withMessage('Please provide a username with at least 4 characters.'),
-  check('username')
-    .not()
-    .isEmail()
-    .withMessage('Username cannot be an email.'),
-  check('password')
+    .withMessage("Please provide a username with at least 4 characters."),
+  check("username").not().isEmail().withMessage("Username cannot be an email."),
+  check("password")
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
-    .withMessage('Password must be 6 characters or more.'),
+    .withMessage("Password must be 6 characters or more."),
   handleValidationErrors,
 ];
 
 // Sign up
 router.post(
-  '',
+  "",
   validateSignup,
   asyncHandler(async (req, res) => {
     const { email, password, username } = req.body;
@@ -43,7 +39,7 @@ router.post(
     return res.json({
       user,
     });
-  }),
+  })
 );
 
 router.get(
@@ -53,8 +49,8 @@ router.get(
     const user = await User.findByPk(userId, {
       include: [
         {
-          model: Post
-        }
+          model: Post,
+        },
       ],
     });
 
@@ -63,23 +59,34 @@ router.get(
 );
 
 //search
-router.put("/search", asyncHandler(async (req, res) => {
-  const { data } = req.body;
+router.put(
+  "/search",
+  asyncHandler(async (req, res) => {
+    const { data } = req.body;
 
-  const users = await User.findAll({
-    where: {
-      username: {
-        [Op.iLike]: `%${data}%`,
+    const users = await User.findAll({
+      where: {
+        username: {
+          [Op.iLike]: `%${data}%`,
+        },
       },
-    },
+    });
 
-  });
+    return res.json(users);
+  })
+);
 
-  return res.json(users);
+// Followers
+router.get(
+  "/:id/followers",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const followers = await User.findByPk(id, {
+      include: ["followers"],
+    });
 
-
-})
-
+    return res.json(followers);
+  })
 );
 
 module.exports = router;
