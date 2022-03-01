@@ -51,6 +51,14 @@ router.get(
         {
           model: Post,
         },
+        {
+          model: Follower,
+          as: "followers",
+        },
+        {
+          model: Follower,
+          as: "following",
+        },
       ],
     });
 
@@ -76,19 +84,7 @@ router.put(
   })
 );
 
-// Followers
-router.get(
-  "/:id/followers",
-  asyncHandler(async (req, res) => {
-    const id = req.params.id;
-    const followers = await User.findByPk(id, {
-      include: ["followers"],
-    });
-
-    return res.json(followers);
-  })
-);
-
+// Follow
 router.post(
   "/:id/followers",
   requireAuth,
@@ -111,18 +107,7 @@ router.post(
   })
 );
 
-// Following
-router.get(
-  "/:id/following",
-  asyncHandler(async (req, res) => {
-    const id = req.params.id;
-    const following = await User.findByPk(id, {
-      include: ["following"],
-    });
-    return res.json(following);
-  })
-);
-
+// Unfollow
 router.delete(
   "/:followerId/following/:followingId",
   asyncHandler(async function (req, res) {
