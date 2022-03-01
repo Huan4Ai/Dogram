@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { User, Post } = require("../../db/models");
+const { User, Post, Follower } = require("../../db/models");
 const { Op } = require("sequelize");
 
 const router = express.Router();
@@ -86,6 +86,61 @@ router.get(
     });
 
     return res.json(followers);
+  })
+);
+
+router.post(
+  "/:id/followers",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const alreadyFollowing = await Follower.findOne({
+      where: {
+        followerId: req.user.id,
+        followingId: req.params.id,
+      },
+    });
+    if (!alreadyFollowing) {
+      const follower = await Follower.create({
+        followerId: req.user.id,
+        followingId: req.params.id,
+      });
+      return res.json(follower);
+    } else {
+      return res.json(false);
+    }
+  })
+);
+
+// Following
+router.get(
+  "/:id/following",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const following = await User.findByPk(id, {
+      include: ["following"],
+    });
+    return res.json(following);
+  })
+);
+
+router.delete(
+  "/:followerId/following/:followingId",
+  asyncHandler(async function (req, res) {
+    const { followingId, followerId } = req.params;
+
+    const follow = await Follower.findOne({
+      where: {
+        followerId: followerId,
+        //   followerId can be thought of as userId
+        followingId: followingId,
+      },
+    });
+    if (follow) {
+      await follow.destroy();
+      return res.json(true);
+    } else {
+      return res.json(false);
+    }
   })
 );
 
