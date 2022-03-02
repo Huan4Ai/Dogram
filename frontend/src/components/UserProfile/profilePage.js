@@ -1,56 +1,141 @@
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleUser } from "../../store/user";
 import { Link } from "react-router-dom";
-
 
 function SingleUserProfile() {
   const dispatch = useDispatch();
   const userId = useParams()?.userId;
 
-  const user = useSelector(state => state?.userReducer);
+  const user = useSelector((state) => state?.userReducer);
   const username = user?.username;
   const posts = user?.Posts;
 
+  const numOfFollowers = useSelector(
+    (state) => state?.userReducer?.followers?.length
+  );
+  const numOfFollowing = useSelector(
+    (state) => state?.userReducer?.following?.length
+  );
+
+  const numOfPosts = posts?.length;
 
   useEffect(() => {
     dispatch(getSingleUser(userId));
   }, [dispatch, userId]);
 
-
-
   return (
-
     <div className="myProfilePageWrapper">
       <div className="profile-header">
-        <div>
-          <img src={user?.profilePicture} className="profileP" alt="userProfile" />
-        </div>
+        <img
+          src={user?.profilePicture}
+          className="profileP"
+          alt="userProfile"
+        />
         <div className="profileRight">
-          <div className="user-info">
-            <h2>{username}</h2>
+          <div className="profileRight-top">
+            <div className="user-name">{username}</div>
           </div>
-          <div className="about">
-            <p>{user?.about}</p>
+          <div className="prof-count">
+            <div>
+              <span className="counter">{numOfPosts}</span> posts
+            </div>
+            <div>
+              <span className="counter">{numOfFollowers}</span> followers
+            </div>
+            <div>
+              <span className="counter">{numOfFollowing}</span> following
+            </div>
           </div>
+          <p className="about">{user.about}</p>
         </div>
       </div>
+      <div className="posts-icon">
+        <svg
+          aria-label=""
+          className="_8-yf5 "
+          color="#8e8e8e"
+          fill="#8e8e8e"
+          height="12"
+          role="img"
+          viewBox="0 0 24 24"
+          width="12"
+        >
+          <rect
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            width="18"
+            x="3"
+            y="3"
+          ></rect>
+          <line
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            x1="9.015"
+            x2="9.015"
+            y1="3"
+            y2="21"
+          ></line>
+          <line
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            x1="14.985"
+            x2="14.985"
+            y1="3"
+            y2="21"
+          ></line>
+          <line
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            x1="21"
+            x2="3"
+            y1="9.015"
+            y2="9.015"
+          ></line>
+          <line
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            x1="21"
+            x2="3"
+            y1="14.985"
+            y2="14.985"
+          ></line>
+        </svg>
+        <span>POSTS</span>
+      </div>
       <div className="user_posts_wrapper">
-        {posts?.map(post =>
+        {posts?.map((post) => (
           <div key={post.id} className="post_image_wrapper">
             <Link to={`/posts/${post?.id}`}>
-              <img src={post.photo_url} alt="postImage" className="postImageProfilePage" />
+              <img
+                src={post.photo_url}
+                alt="postImage"
+                className="postImageProfilePage"
+              />
             </Link>
           </div>
-        )}
+        ))}
       </div>
     </div>
   );
-
-
-
 }
 
 export default SingleUserProfile;
