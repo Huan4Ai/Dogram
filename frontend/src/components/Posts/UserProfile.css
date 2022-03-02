@@ -1,34 +1,29 @@
 .myProfilePageWrapper {
   margin: 0 auto;
-  display: flex;
-  max-width: 80%;
-  flex-direction: column;
-
+  padding-top: 20px;
 }
 
 .profile-header {
   display: flex;
-  justify-content: center;
+  margin: 0 auto;
+  border-bottom: 0.5px solid #dbdbdb;
+  width: 935px;
+  padding-left: 4%;
+  gap: 50px;
+  min-height: 25vh;
   align-items: center;
-  margin: 5% 0;
-  text-align: center;
-  border-bottom: 2px solid hsla(0,0%,50.2%,.26);
-  padding-bottom: 30px;
-  width: 100%;
 }
 
 .profileP {
   border-radius: 50%;
   width: 150px;
-  margin: 0 5% 0 0;
+  height: 150px;
+  object-fit: cover;
 }
 
 .profileRight {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  /* justify-content: space-around; */
-  gap: 30px;
 }
 
 /* .user-info {
