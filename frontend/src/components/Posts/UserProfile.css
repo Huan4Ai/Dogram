@@ -45,13 +45,23 @@
   font-weight: 600;
 }
 
-
+.posts-icon {
+  display: flex;
+  justify-content: center;
+  color: #262626;
+  margin: auto;
+  align-items: center;
+  font-size: 12px;
+  height: 53px;
+  gap: 3px;
+  font-weight: 500;
+}
 
 .user_posts_wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 20px;
 }
 
 .post_image_wrapper {

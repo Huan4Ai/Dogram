@@ -57,6 +57,75 @@ function UserProfilePage() {
           <p className="about">{user.about}</p>
         </div>
       </div>
+      <div className="posts-icon">
+        <svg
+          aria-label=""
+          className="_8-yf5 "
+          color="#8e8e8e"
+          fill="#8e8e8e"
+          height="12"
+          role="img"
+          viewBox="0 0 24 24"
+          width="12"
+        >
+          <rect
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            width="18"
+            x="3"
+            y="3"
+          ></rect>
+          <line
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            x1="9.015"
+            x2="9.015"
+            y1="3"
+            y2="21"
+          ></line>
+          <line
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            x1="14.985"
+            x2="14.985"
+            y1="3"
+            y2="21"
+          ></line>
+          <line
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            x1="21"
+            x2="3"
+            y1="9.015"
+            y2="9.015"
+          ></line>
+          <line
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            x1="21"
+            x2="3"
+            y1="14.985"
+            y2="14.985"
+          ></line>
+        </svg>
+        <span>POSTS</span>
+      </div>
       <div className="user_posts_wrapper">
         {userPosts.map((post) => (
           <div key={post.id} className="post_image_wrapper">
