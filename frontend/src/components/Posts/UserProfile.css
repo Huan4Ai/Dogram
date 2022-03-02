@@ -24,15 +24,28 @@
 .profileRight {
   display: flex;
   flex-direction: column;
-}
-
-/* .user-info {
-  display: flex
-} */
-
-.profileRight {
   margin-left: 5%;
+  width: 613px;
+  gap: 20px;
 }
+
+.user-name {
+  font-size: 30px;
+  color: #262626;
+}
+
+.prof-count {
+  display: flex;
+  color: #555;
+  font-weight: 500;
+  gap: 20px;
+}
+
+.counter {
+  font-weight: 600;
+}
+
+
 
 .user_posts_wrapper {
     display: grid;

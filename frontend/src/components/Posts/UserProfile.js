@@ -35,14 +35,25 @@ function UserProfilePage() {
 
   const numOfPosts = userPosts.length;
 
-
   return (
     <div className="myProfilePageWrapper">
       <div className="profile-header">
         <img src={user.profilePicture} className="profileP" alt="userProfile" />
         <div className="profileRight">
-          <h2 className="user-info">{username}</h2>
-          <p>{numOfPosts} posts  {numOfFollowers} followers {numOfFollowing} following</p>
+          <div className="profileRight-top">
+            <div className="user-name">{username}</div>
+          </div>
+          <div className="prof-count">
+            <div>
+              <span className="counter">{numOfPosts}</span> posts
+            </div>
+            <div>
+              <span className="counter">{numOfFollowers}</span> followers
+            </div>
+            <div>
+              <span className="counter">{numOfFollowing}</span> following
+            </div>
+          </div>
           <p className="about">{user.about}</p>
         </div>
       </div>
