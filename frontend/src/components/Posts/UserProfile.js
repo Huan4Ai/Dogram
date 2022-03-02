@@ -18,8 +18,8 @@ function UserProfilePage() {
     (state) => state?.userReducer?.following?.length
   );
 
-  const username = user.username;
-  const userId = user.id;
+  const username = user?.username;
+  const userId = user?.id;
 
   useEffect(() => {
     dispatch(getPosts());
