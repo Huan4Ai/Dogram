@@ -1,9 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleUser } from "../../store/user";
 import { Link } from "react-router-dom";
+import "./profilePage.css";
+import { createFollowThunk } from "../../store/user";
 
 function SingleUserProfile() {
   const dispatch = useDispatch();
@@ -13,6 +15,8 @@ function SingleUserProfile() {
   const username = user?.username;
   const posts = user?.Posts;
 
+  const sessionUser = useSelector((state) => state?.session?.user);
+
   const numOfFollowers = useSelector(
     (state) => state?.userReducer?.followers?.length
   );
@@ -20,11 +24,25 @@ function SingleUserProfile() {
     (state) => state?.userReducer?.following?.length
   );
 
+  const [followers, setFollowers] = useState(numOfFollowers);
+
   const numOfPosts = posts?.length;
 
   useEffect(() => {
     dispatch(getSingleUser(userId));
   }, [dispatch, userId]);
+
+  const createFollow = async (e) => {
+    e.preventDefault();
+    const data = {
+      followerId: userId,
+      followingId: sessionUser.id,
+    };
+
+    await dispatch(createFollowThunk(data, userId));
+    await dispatch(getSingleUser(userId));
+    // setFollow(follow + 1)
+  };
 
   return (
     <div className="myProfilePageWrapper">
@@ -35,18 +53,21 @@ function SingleUserProfile() {
           alt="userProfile"
         />
         <div className="profileRight">
-          <div className="profileRight-top">
+          <div className="usernameAndFollow">
             <div className="user-name">{username}</div>
+            <button className="follow-button" onClick={createFollow}>
+              Follow
+            </button>
           </div>
           <div className="prof-count">
             <div>
               <span className="counter">{numOfPosts}</span> posts
             </div>
             <div>
-              <span className="counter">{numOfFollowers}</span> followers
+              <span className="counter">{numOfFollowing}</span> followers
             </div>
             <div>
-              <span className="counter">{numOfFollowing}</span> following
+              <span className="counter">{numOfFollowers}</span> following
             </div>
           </div>
           <p className="about">{user.about}</p>
