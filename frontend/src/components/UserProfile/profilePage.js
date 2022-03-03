@@ -41,8 +41,8 @@ function SingleUserProfile() {
 
     await dispatch(createFollowThunk(data, userId));
     await dispatch(getSingleUser(userId));
-    // setFollow(follow + 1)
   };
+
 
   return (
     <div className="myProfilePageWrapper">
@@ -55,9 +55,11 @@ function SingleUserProfile() {
         <div className="profileRight">
           <div className="usernameAndFollow">
             <div className="user-name">{username}</div>
-            <button className="follow-button" onClick={createFollow}>
-              Follow
-            </button>
+            {sessionUser.id == userId ? null : (
+              <button className="follow-button" onClick={createFollow}>
+                Follow
+              </button>
+            )}
           </div>
           <div className="prof-count">
             <div>
