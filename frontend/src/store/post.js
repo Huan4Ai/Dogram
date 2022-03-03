@@ -7,7 +7,6 @@ const DELETE_POST = 'posts/DELETE_POST';
 
 const GET_LIKES = "posts/GET_LIKES";
 const ADD_LIKE = "posts/ADD_LIKE";
-const DELETE_LIKE = "posts/DELETE_LIKE"
 
 const loadPosts = (list) => ({
   type: LOAD_POSTS,
@@ -139,7 +138,7 @@ export const createLike = (data, id) => async (dispatch) => {
 
 };
 
-export const deleteLike = (id, userId) => async (dispatch) => {
+export const deleteLike = (id, userId) => async () => {
   const response = await csrfFetch(`/api/posts/${id}/likes/${userId}`, {
     method: "DELETE"
   });
