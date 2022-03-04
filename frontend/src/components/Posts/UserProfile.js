@@ -48,10 +48,10 @@ function UserProfilePage() {
               <span className="counter">{numOfPosts}</span> posts
             </div>
             <div>
-              <span className="counter">{numOfFollowers}</span> followers
+              <span className="counter">{numOfFollowing}</span> followers
             </div>
             <div>
-              <span className="counter">{numOfFollowing}</span> following
+              <span className="counter">{numOfFollowers}</span> following
             </div>
           </div>
           <p className="about">{user.about}</p>
