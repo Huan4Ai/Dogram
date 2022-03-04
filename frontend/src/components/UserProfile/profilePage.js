@@ -25,8 +25,6 @@ function SingleUserProfile() {
     (state) => state?.userReducer?.following?.length
   );
 
-  const [followers, setFollowers] = useState(numOfFollowers);
-
   const numOfPosts = posts?.length;
 
   useEffect(() => {
