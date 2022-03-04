@@ -6,6 +6,7 @@ import { getSingleUser } from "../../store/user";
 import { Link } from "react-router-dom";
 import "./profilePage.css";
 import { createFollowThunk } from "../../store/user";
+import { deleteFollowThunk } from "../../store/user";
 
 function SingleUserProfile() {
   const dispatch = useDispatch();
@@ -43,6 +44,24 @@ function SingleUserProfile() {
     await dispatch(getSingleUser(userId));
   };
 
+  const isFollowed = () => {
+    const follows = user?.following;
+    if (follows) {
+      for (let i = 0; i < follows.length; i++) {
+        let follow = follows[i];
+        if (follow.followerId === sessionUser?.id) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  const deleteFollow = async () => {
+    await dispatch(deleteFollowThunk(sessionUser.id, user.id));
+    await dispatch(getSingleUser(userId));
+  };
+
 
   return (
     <div className="myProfilePageWrapper">
@@ -55,10 +74,28 @@ function SingleUserProfile() {
         <div className="profileRight">
           <div className="usernameAndFollow">
             <div className="user-name">{username}</div>
-            {sessionUser.id == userId ? null : (
+            {/* {sessionUser.id == userId ? null : (
               <button className="follow-button" onClick={createFollow}>
                 Follow
               </button>
+            )} */}
+            {sessionUser.id !== user.id && (
+              <>
+                {!isFollowed() ? (
+                  <button className="follow-button" onClick={createFollow}>
+                    Follow
+                  </button>
+                ) : (
+                  <button onClick={deleteFollow} className="unfollowButton">
+                    <img
+                      src={
+                        "https://img.icons8.com/material-sharp/24/000000/checked-user-male.png"
+                      }
+                      alt=""
+                    ></img>
+                  </button>
+                )}
+              </>
             )}
           </div>
           <div className="prof-count">
