@@ -12,12 +12,13 @@
 
 .left-grid-image {
   /* object-fit: contain; */
-  height: 500px;
+  height: 506px;
   width: 100%;
 }
 
 .editAndDeleteIcons {
   display: flex;
+  align-items: center;
   position: relative;
   left: 118px;
 }
@@ -46,10 +47,14 @@
   font-size: 10pt;
   text-decoration: none;
   color: black;
+  position: relative;
+  top: 5px;
 }
 
 .postDescriptonOnPostcard {
   font-size: 10pt;
+  position: relative;
+  top: 5px;
 }
 
 .single-like-container {
