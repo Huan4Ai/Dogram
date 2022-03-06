@@ -11,7 +11,6 @@ function AddCommentSinglePost() {
 
   const user_id = useSelector((state) => state.session?.user?.id);
   const post_Id = useParams().postId;
-  const post = useSelector(state => state?.post[post_Id]);
 
   const [content, setContent] = useState("");
 
