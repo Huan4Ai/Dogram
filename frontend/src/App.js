@@ -8,6 +8,7 @@ import ShowAllPosts from './components/Posts/ShowAllPosts';
 import UserProfilePage from './components/Posts/UserProfile';
 import SinglePost from './components/Posts/SinglePost';
 import SingleUserProfile from './components/UserProfile/profilePage';
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const dispatch = useDispatch();

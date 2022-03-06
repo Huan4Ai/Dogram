@@ -28,7 +28,7 @@
 
 
 
-@keyframes right-to-left {
+/* @keyframes right-to-left {
   0% {
     transform: translateX(100%);
   }
@@ -37,7 +37,7 @@
     transform: translateX(0);
   }
 
-}
+} */
 
 .login_form {
   display: flex;
@@ -88,11 +88,12 @@
 }
 
 .signUpWrapper {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   background-color: white;
-  width: 100%;
+  width: 100%; */
   /* padding: 20px; */
+  font-size: 0.9rem;
 }
 
 .footer {

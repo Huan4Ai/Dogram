@@ -8,6 +8,7 @@ function SignUpFormModal() {
 
   return (
     <>
+      <span>New to Dogram?</span>
       <button onClick={() => setShowModal(true)} className="signUpButtonOnLogin">Sign Up</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
