@@ -12,12 +12,13 @@
 
 .left-grid-image {
   /* object-fit: contain; */
-  height: 500px;
+  height: 506px;
   width: 100%;
 }
 
 .editAndDeleteIcons {
   display: flex;
+  align-items: center;
   position: relative;
   left: 118px;
 }
